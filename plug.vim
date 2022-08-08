@@ -8,10 +8,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 if has("nvim")
+" Base16 colorschemes (lualine)
+  Plug 'RRethy/nvim-base16'
+  
+  " Statusline
   Plug 'hoob3rt/lualine.nvim'
-  Plug 'kristijanhusak/defx-git'
-  Plug 'kristijanhusak/defx-icons'
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+
+
+  "Plug 'kristijanhusak/defx-git'
+  "Plug 'kristijanhusak/defx-icons'
+  "Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'tami5/lspsaga.nvim'
@@ -28,10 +35,19 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
-  Plug 'morhetz/gruvbox'
   Plug 'numToStr/Comment.nvim'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+
+  " Format with prettier
+  Plug 'sbdchd/neoformat'
+
+  " Themes
+  " Plug 'morhetz/gruvbox'
+  Plug 'chriskempson/base16-vim'
+
+  " Add vertical lines for indents
+  Plug 'lukas-reineke/indent-blankline.nvim'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

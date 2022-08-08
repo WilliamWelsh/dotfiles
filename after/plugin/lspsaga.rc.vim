@@ -14,12 +14,26 @@ saga.init_lsp_saga {
   }
 }
 
+local highlights = {
+  LspSagaDiagnosticBorder = { fg = '#CC6666' },
+}
+
+for group, conf in pairs(highlights) do vim.api.nvim_set_hl(0, group, conf) end
+
 EOF
 
-nnoremap <silent> <C-j> <Cmd>Lspsaga diagnostic_jump_next<CR>
+" F8 To jump to errors
+nnoremap <silent> <F8> <Cmd>Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent>K <Cmd>Lspsaga hover_doc<CR>
 "nnoremap <silent> K <Cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
 inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
-nnoremap <silent> gd <Cmd>Lspsaga lsp_finder<CR>
+
+" Shift + F12 to find references
+"nnoremap <silent> <S-F12> <Cmd>Lspsaga lsp_finder<CR>
+
+nnoremap <silent> <F12> <Cmd>lua vim.lsp.buf.definition()<CR>
+
 nnoremap <silent> gp <Cmd>Lspsaga preview_definition<CR>
-nnoremap <silent> gr <Cmd>Lspsaga rename<CR>
+
+" F2 to rename
+nnoremap <silent> <F2> <Cmd>Lspsaga rename<CR>

@@ -30,10 +30,14 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
-" NvimTree
-" Toggle
-nmap ;b :NvimTreeFocus<Return>
+" NvimTree Toggle
+" I use CMD + B bind (iTerm)
 nmap ;n :NvimTreeToggle<Return>
+
+" Comment Lines
+" I use CMD + / bind (iTerm)
+nmap <Space>/ <Plug>(comment_toggle_current_linewise)
+vnoremap <Space>/ <Plug>(comment_toggle_linewise_visual)
 
 "-----------------------------
 " Tabs
@@ -49,6 +53,7 @@ nmap <Tab> :tabnext<Return>
 " Split window
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
+
 " Move window
 nmap <Space> <C-w>w
 map s<left> <C-w>h
@@ -59,6 +64,7 @@ map sh <C-w>h
 map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
+
 " Resize window
 nmap <C-w><left> <C-w><
 nmap <C-w><right> <C-w>>

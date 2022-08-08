@@ -1,6 +1,8 @@
 " Fundamentals "{{{
 " ---------------------------------------------------------------------
 
+lua require "callbacks"
+
 " init autocmd
 autocmd!
 " set script encoding
@@ -26,6 +28,8 @@ set expandtab
 "let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
+set mouse=a
+
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -110,6 +114,12 @@ autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
+
+" Prettier
+autocmd BufWritePre *.js Neoformat 
+autocmd BufWritePre *.tsx Neoformat 
+autocmd BufWritePre *.ts Neoformat 
+autocmd BufWritePre *.jsx Neoformat 
 "}}}
 
 " Imports "{{{
@@ -122,9 +132,6 @@ if has("unix")
     runtime ./macos.vim
   endif
 endif
-if has('win32')
-  runtime ./windows.vim
-endif
 
 runtime ./maps.vim
 "}}}
@@ -134,17 +141,19 @@ runtime ./maps.vim
 
 " true color
 " fix for gruvbox transparency
-if exists("&termguicolors") && exists("&winblend")
+"if exists("&termguicolors") && exists("&winblend")
   syntax enable
   set termguicolors
+  let base16colorspace=256  " Access colors present in 256 colorspace
   set winblend=0
   set wildoptions=pum
   set pumblend=5
-  set background=dark
+  "set background=dark
   " Use Gruvbox
-  colorscheme gruvbox
+  " colorscheme gruvbox
+  colorscheme base16-tomorrow-night
   hi Normal guibg=NONE ctermbg=NONE
-endif
+"endif
 
 "}}}
 
