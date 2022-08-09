@@ -73,3 +73,9 @@ nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
 
+" Use escape to get out of terminal mode
+tnoremap <Esc> <C-\><C-n>
+
+" I use Shift + CMD + F (iTerm)
+nnoremap <silent> ;h <CMD>lua require('spectre').open_visual()<CR>
+

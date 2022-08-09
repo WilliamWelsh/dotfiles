@@ -4,8 +4,6 @@ if not present then
   return
 end
 
--- require("base46").load_highlight "nvimtree"
-
 local options = {
   filters = {
     dotfiles = false,
@@ -85,3 +83,14 @@ local options = {
 vim.g.nvimtree_side = options.view.side
 
 nvimtree.setup(options)
+
+local highlights = {
+  NvimTreeFolderIcon = { fg = '#61AFEF' },
+  NvimTreeEmptyFolderName = { fg = '#61AFEF' },
+  NvimTreeFolderName = { fg = '#61AFEF' },
+  NvimTreeOpenedFolderName = { fg = '#61AFEF' },
+  NvimTreeWinSeparator = { fg = '#000000' },
+}
+
+for group, conf in pairs(highlights) do vim.api.nvim_set_hl(0, group, conf) end
+

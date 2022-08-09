@@ -6,6 +6,8 @@ nnoremap <silent> \\ <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <silent> ;t <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <silent> ;; <cmd>lua require('telescope.builtin').resume()<cr>
 nnoremap <silent> ;e <cmd>lua require('telescope.builtin').diagnostics()<cr>
+nnoremap <silent> ;g <cmd>lua require('telescope.builtin').grep_string()<cr>
+
 
 lua << EOF
 function telescope_buffer_dir()
@@ -68,5 +70,4 @@ telescope.setup {
   }
 }
 EOF
-
 

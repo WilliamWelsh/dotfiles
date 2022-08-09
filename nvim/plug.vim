@@ -55,6 +55,9 @@ if has("nvim")
 
   " Copilot
   Plug 'github/copilot.vim'
+
+  " Find & Replace Plugin
+  Plug 'windwp/nvim-spectre'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

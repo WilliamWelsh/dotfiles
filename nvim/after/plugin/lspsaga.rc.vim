@@ -24,6 +24,7 @@ EOF
 
 " F8 To jump to errors
 nnoremap <silent> <F8> <Cmd>Lspsaga diagnostic_jump_next<CR>
+
 nnoremap <silent>K <Cmd>Lspsaga hover_doc<CR>
 "nnoremap <silent> K <Cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
 inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
@@ -37,6 +38,9 @@ nnoremap <silent> ;. <Cmd>Lspsaga code_action<CR>
 nnoremap <silent> <F12> <Cmd>lua vim.lsp.buf.definition()<CR>
 
 nnoremap <silent> gp <Cmd>Lspsaga preview_definition<CR>
+
+" Toggle a floating terminal for quick commands
+nnoremap <silent> <C-`> <Cmd>Lspsaga toggle_floaterm<CR>
 
 " F2 to rename
 nnoremap <silent> <F2> <Cmd>Lspsaga rename<CR>
