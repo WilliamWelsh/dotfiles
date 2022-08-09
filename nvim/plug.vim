@@ -4,8 +4,9 @@ endif
 
 call plug#begin()
 
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
+" Git plugins
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-rhubarb'
 
 if has("nvim")
 " Base16 colorschemes (lualine)
@@ -15,18 +16,19 @@ if has("nvim")
   Plug 'hoob3rt/lualine.nvim'
 
 
-  "Plug 'kristijanhusak/defx-git'
-  "Plug 'kristijanhusak/defx-icons'
-  "Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-
+  " LSP Stuff
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'tami5/lspsaga.nvim'
   Plug 'folke/lsp-colors.nvim'
-  Plug 'L3MON4D3/LuaSnip'
+
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
+
+  " Snippets
+  Plug 'L3MON4D3/LuaSnip'
+
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
   " Colored icons
@@ -37,7 +39,11 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
+
+  " Comment Plugin
   Plug 'numToStr/Comment.nvim'
+
+  " File Explorer
   Plug 'kyazdani42/nvim-tree.lua'
 
   " Format with prettier
@@ -59,8 +65,6 @@ if has("nvim")
   " Find & Replace Plugin
   Plug 'windwp/nvim-spectre'
 endif
-
-Plug 'groenewege/vim-less', { 'for': 'less' }
 
 call plug#end()
 
