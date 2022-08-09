@@ -46,6 +46,8 @@ vnoremap <Space>/ <Plug>(comment_toggle_linewise_visual)
 nmap te :tabedit 
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
+" I use CMD + W (default CMD + W disabled) (iTerm)
+nmap ;q :tabclose<Return>
 
 "------------------------------
 " Windows

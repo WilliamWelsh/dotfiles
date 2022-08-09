@@ -28,6 +28,8 @@ if has("nvim")
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+
+  " Colored icons
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'onsails/lspkind-nvim'
   Plug 'nvim-lua/popup.nvim'
@@ -37,7 +39,6 @@ if has("nvim")
   Plug 'windwp/nvim-ts-autotag'
   Plug 'numToStr/Comment.nvim'
   Plug 'kyazdani42/nvim-tree.lua'
-  Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 
   " Format with prettier
   Plug 'sbdchd/neoformat'
@@ -48,6 +49,12 @@ if has("nvim")
 
   " Add vertical lines for indents
   Plug 'lukas-reineke/indent-blankline.nvim'
+
+  " Icon & filenames as tabs
+  Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+
+  " Copilot
+  Plug 'github/copilot.vim'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

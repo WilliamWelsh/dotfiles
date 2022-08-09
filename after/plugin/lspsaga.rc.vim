@@ -29,7 +29,10 @@ nnoremap <silent>K <Cmd>Lspsaga hover_doc<CR>
 inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
 
 " Shift + F12 to find references
-"nnoremap <silent> <S-F12> <Cmd>Lspsaga lsp_finder<CR>
+" nnoremap <silent> <S-F12> <Cmd>Lspsaga lsp_finder<CR>
+
+" I use CMD + . for this (iTerm remap)
+nnoremap <silent> ;. <Cmd>Lspsaga code_action<CR>
 
 nnoremap <silent> <F12> <Cmd>lua vim.lsp.buf.definition()<CR>
 

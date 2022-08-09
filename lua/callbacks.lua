@@ -1,29 +1,37 @@
-local api = vim.api
-local util = vim.lsp.util
-local callbacks = vim.lsp.handlers
-local log = vim.lsp.log
- 
-local location_callback = function(_, method, result)
-  if result == nil or vim.tbl_isempty(result) then
-  local _ = log.info() and log.info(method, 'No location found')
-  return nil
-  end
- 
-  api.nvim_command('tab split')
- 
-  if vim.tbl_islist(result) then
-    util.jump_to_location(result[1])
-    if #result > 1 then
-      util.set_qflist(util.locations_to_items(result))
-      api.nvim_command("copen")
-      api.nvim_command("wincmd p")
+-- This will make stuff like definitions open in a new tab
+local function goto_definition(split_cmd)
+  local util = vim.lsp.util
+  local log = require("vim.lsp.log")
+  local api = vim.api
+
+  -- note, this handler style is for neovim 0.5.1/0.6, if on 0.5, call with function(_, method, result)
+  local handler = function(_, result, ctx)
+    if result == nil or vim.tbl_isempty(result) then
+      local _ = log.info() and log.info(ctx.method, "No location found")
+      return nil
     end
-  else
-    util.jump_to_location(result)
+
+    if split_cmd then
+      vim.cmd(split_cmd)
+    end
+
+    if vim.tbl_islist(result) then
+      util.jump_to_location(result[1])
+
+      if #result > 1 then
+        util.set_qflist(util.locations_to_items(result))
+        api.nvim_command("copen")
+        api.nvim_command("wincmd p")
+      end
+    else
+      util.jump_to_location(result)
+    end
   end
+
+  return handler
 end
- 
-callbacks['textDocument/declaration']    = location_callback
-callbacks['textDocument/definition']     = location_callback
-callbacks['textDocument/typeDefinition'] = location_callback
-callbacks['textDocument/implementation'] = location_callback
+
+vim.lsp.handlers["textDocument/definition"] = goto_definition('tabnew')
+vim.lsp.handlers["textDocument/declaration"] = goto_definition('tabnew')
+vim.lsp.handlers["textDocument/typeDefinition"] = goto_definition('tabnew')
+vim.lsp.handlers["textDocument/implementation"] = goto_definition('tabnew')
