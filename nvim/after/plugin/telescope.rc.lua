@@ -1,21 +1,13 @@
-if !exists('g:loaded_telescope') | finish | endif
+local status, telescope = pcall(require, "telescope")
+if (not status) then return end
+local actions = require('telescope.actions')
+local builtin = require("telescope.builtin")
 
-nnoremap <silent> ;f <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <silent> ;r <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <silent> \\ <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <silent> ;t <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <silent> ;; <cmd>lua require('telescope.builtin').resume()<cr>
-nnoremap <silent> ;e <cmd>lua require('telescope.builtin').diagnostics()<cr>
-nnoremap <silent> ;g <cmd>lua require('telescope.builtin').grep_string()<cr>
-
-
-lua << EOF
-function telescope_buffer_dir()
+local function telescope_buffer_dir()
   return vim.fn.expand('%:p:h')
 end
 
-local telescope = require('telescope')
-local actions = require('telescope.actions')
+local fb_actions = require "telescope".extensions.file_browser.actions
 
 telescope.setup {
   defaults = {
@@ -69,5 +61,40 @@ telescope.setup {
     },
   }
 }
-EOF
 
+telescope.load_extension("file_browser")
+
+vim.keymap.set('n', ';f',
+  function()
+    builtin.find_files({
+      no_ignore = false,
+      hidden = true
+    })
+  end)
+vim.keymap.set('n', ';g', function()
+  builtin.grep_string()
+end)
+vim.keymap.set('n', '\\\\', function()
+  builtin.buffers()
+end)
+vim.keymap.set('n', ';t', function()
+  builtin.help_tags()
+end)
+vim.keymap.set('n', ';;', function()
+  builtin.resume()
+end)
+vim.keymap.set('n', ';e', function()
+  builtin.diagnostics()
+end)
+vim.keymap.set("n", "sf", function()
+  telescope.extensions.file_browser.file_browser({
+    path = "%:p:h",
+    cwd = telescope_buffer_dir(),
+    respect_gitignore = false,
+    hidden = true,
+    grouped = true,
+    previewer = false,
+    initial_mode = "normal",
+    layout_config = { height = 40 }
+  })
+end)

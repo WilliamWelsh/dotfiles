@@ -94,4 +94,3 @@ local highlights = {
 }
 
 for group, conf in pairs(highlights) do vim.api.nvim_set_hl(0, group, conf) end
-
