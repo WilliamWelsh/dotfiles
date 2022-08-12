@@ -1,6 +1,7 @@
 local status, cmp = pcall(require, "cmp")
 if (not status) then return end
 local lspkind = require 'lspkind'
+local luasnip = require("luasnip")
 
 local function border(hl_name)
   return {
@@ -34,6 +35,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'buffer' },
+    { name = "luasnip"},
   }),
   formatting = {
     format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
@@ -53,6 +55,10 @@ vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
+
+-- Add snippets
+require("luasnip.loaders.from_vscode").lazy_load()   -- this will load the default paths
+require("luasnip.loaders.from_vscode").lazy_load({paths = {"~/.config/nvim/snippets"}})  --this will load yours
 
 -- " Use <Tab> and <S-Tab> to navigate through popup menu
 -- inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

@@ -31,8 +31,30 @@ vim.opt.wildignore:append { '*/node_modules/*' }
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-vim.opt.termguicolors = true
 vim.g.colors_name = "base16-tomorrow-night"
+
+-- Enable Mouse
+vim.opt.mouse = "a"
+
+-- vim.api.nvim_command([[autocmd BufWritePre *.tsx Prettier]])
+
+vim.opt.fillchars = {
+  vert = "│",
+  fold = "⠀",
+  eob = " ", -- suppress ~ at EndOfBuffer
+  msgsep = "‾",
+  foldopen = "▾",
+  foldsep = "│",
+  foldclose = "▸",
+}
+
+-- Format on save
+vim.cmd([[
+  augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+  augroup END
+]])
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])

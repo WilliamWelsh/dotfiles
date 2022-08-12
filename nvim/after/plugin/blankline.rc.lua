@@ -1,7 +1,7 @@
 local status, blankline = pcall(require, "indent-blankline")
 if (not status) then return end
 
-vim.cmd([[highlight IndentBlanklineContextStart guisp=#F5C2E7 gui=underline]])
+-- vim.cmd([[highlight IndentBlanklineContextStart guisp=#F5C2E7 gui=underline]])
 
 local options = {
     indentLine_enabled = 1,
@@ -26,3 +26,5 @@ local options = {
 
 options = load_override(options, "lukas-reineke/indent-blankline.nvim")
 blankline.setup(options)
+
+vim.cmd("highlight IndentBlanklineContextStart guisp=#F5C2E7 gui=underline")

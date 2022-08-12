@@ -1,0 +1,236 @@
+{
+  "React Functional Component": {
+    "prefix": "treact",
+    "body": [
+      "import React from 'react';",
+      "",
+      "const ${1:App} = () => {",
+      "\treturn (",
+      "\t\t<>",
+      "\t\t\t${2}",
+      "\t\t</>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1:App};",
+      ""
+    ],
+    "description": "Create a stateless Typescript React Functional Component"
+  },
+
+  "React FC with props (interface)": {
+    "prefix": "treactprops",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface ${1:App}Props {",
+      "\t${2}: ${3:string};",
+      "}",
+      "",
+      "const ${1:App}: React.FC<${1:App}Props> = ({ ${2} }) => {",
+      "\treturn (",
+      "\t\t<>",
+      "\t\t\t${4}",
+      "\t\t</>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1:App};",
+      ""
+    ],
+    "description": "Create a Typescript React Functional Component with props and interface"
+  },
+
+  "React FC with props (type)": {
+    "prefix": "treactprops type",
+    "body": [
+      "import React from 'react';",
+      "",
+      "type ${1:App}Props = {",
+      "\t${2}: ${3:string};",
+      "};",
+      "",
+      "const ${1:App}: React.FC<${1:App}Props> = ({ ${2} }) => {",
+      "\treturn (",
+      "\t\t<>",
+      "\t\t\t${4}",
+      "\t\t</>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1:App};",
+      ""
+    ],
+    "description": "Create a Typescript React Functional Component with props and interface"
+  },
+
+  "React FC with props (interface) and derived state": {
+    "prefix": "treactstate",
+    "body": [
+      "import React, { useState, useEffect } from 'react';",
+      "",
+      "interface ${1:App}Props {",
+      "\t${2}: ${3:string};",
+      "}",
+      "",
+      "const ${1:App}: React.FC<${1:App}Props> = ({ ${2} }) => {",
+      "\tconst [$4, set${4/(.*)/${1:/capitalize}/}] = useState<${3:string}>(${5:${2}});",
+      "\tuseEffect(() => {",
+      "\t\t${6:set${4/(.*)/${1:/capitalize}/}(${2:});}",
+      "\t}, [${7:${2:}}]);",
+      "",
+      "\treturn (",
+      "\t\t<>",
+      "\t\t\t${8}",
+      "\t\t</>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1:App};",
+      ""
+    ],
+    "description": "Create a Typescript React Functional Component with props, interface and a derived state (imports useEffect and useState)"
+  },
+
+  "React FC with props (type) and derived state": {
+    "prefix": "treactstate type",
+    "body": [
+      "import React, { useState, useEffect } from 'react';",
+      "",
+      "type ${1:App}Props = {",
+      "\t${2}: ${3:string};",
+      "};",
+      "",
+      "const ${1:App}: React.FC<${1:App}Props> = ({ ${2} }) => {",
+      "\tconst [$4, set${4/(.*)/${1:/capitalize}/}] = useState<${3:string}>(${5:${2}});",
+      "\tuseEffect(() => {",
+      "\t\t${6:set${4/(.*)/${1:/capitalize}/}(${2:});}",
+      "\t}, [${7:${2:}}]);",
+      "",
+      "\treturn (",
+      "\t\t<>",
+      "\t\t\t${8}",
+      "\t\t</>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1:App};",
+      ""
+    ],
+    "description": "Create a Typescript React Functional Component with props, interface and a derived state (imports useEffect and useState)"
+  },
+
+  "Memoized Context with Provider component (interface)": {
+    "prefix": "tcontext",
+    "body": [
+      "import React, { createContext, useState, useMemo } from 'react';",
+      "",
+      "interface ${1/(.*)/${1:/capitalize}/}ContextType {",
+      "\t${1}: ${2:string};",
+      "\tset${1/(.*)/${1:/capitalize}/}: (value: ${2:string}) => void;",
+      "}",
+      "",
+      "export const ${1/(.*)/${1:/capitalize}/}Context = createContext<${1/(.*)/${1:/capitalize}/}ContextType>({",
+      "\t${1}: ${3:''},",
+      "\tset${1/(.*)/${1:/capitalize}/}: () => {},",
+      "});",
+      "",
+      "const ${1/(.*)/${1:/capitalize}/}Provider: React.FC = ({ children }) => {",
+      "\tconst [${1:}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:string}>(${3:''});",
+      "\tconst memoizedValue = useMemo(() => ({ ${1:}, set${1/(.*)/${1:/capitalize}/} }), [${1:}]);",
+      "",
+      "\treturn (",
+      "\t\t<${1/(.*)/${1:/capitalize}/}Context.Provider",
+      "\t\t\tvalue={{",
+      "\t\t\t\t${1:}: memoizedValue.${1:},",
+      "\t\t\t\tset${1/(.*)/${1:/capitalize}/}: memoizedValue.set${1/(.*)/${1:/capitalize}/},",
+      "\t\t\t}}",
+      "\t\t>",
+      "\t\t\t{children}",
+      "\t\t</${1/(.*)/${1:/capitalize}/}Context.Provider>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1/(.*)/${1:/capitalize}/}Provider;",
+      ""
+    ],
+    "description": "Create a Typescript React Context with memoized state and a Provider component"
+  },
+
+  "Memoized Context with Provider component (type)": {
+    "prefix": "tcontext type",
+    "body": [
+      "import React, { createContext, useState, useMemo } from 'react';",
+      "",
+      "type ${1/(.*)/${1:/capitalize}/}ContextType = {",
+      "\t${1}: ${2:string};",
+      "\tset${1/(.*)/${1:/capitalize}/}: (value: ${2:string}) => void;",
+      "};",
+      "",
+      "export const ${1/(.*)/${1:/capitalize}/}Context = createContext<${1/(.*)/${1:/capitalize}/}ContextType>({",
+      "\t${1}: ${3:''},",
+      "\tset${1/(.*)/${1:/capitalize}/}: () => {},",
+      "});",
+      "",
+      "const ${1/(.*)/${1:/capitalize}/}Provider: React.FC = ({ children }) => {",
+      "\tconst [${1:}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:string}>(${3:''});",
+      "\tconst memoizedValue = useMemo(() => ({ ${1:}, set${1/(.*)/${1:/capitalize}/} }), [${1:}]);",
+      "",
+      "\treturn (",
+      "\t\t<${1/(.*)/${1:/capitalize}/}Context.Provider",
+      "\t\t\tvalue={{",
+      "\t\t\t\t${1:}: memoizedValue.${1:},",
+      "\t\t\t\tset${1/(.*)/${1:/capitalize}/}: memoizedValue.set${1/(.*)/${1:/capitalize}/},",
+      "\t\t\t}}",
+      "\t\t>",
+      "\t\t\t{children}",
+      "\t\t</${1/(.*)/${1:/capitalize}/}Context.Provider>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1/(.*)/${1:/capitalize}/}Provider;",
+      ""
+    ],
+    "description": "Create a Typescript React Context with memoized state and a Provider component"
+  },
+
+  "React useState hook": {
+    "prefix": "tstate",
+    "body": [
+      "const [$1, set${1/(.*)/${1:/capitalize}/}] = useState$0<${2:string}>(${3:''});"
+    ],
+    "description": "Create a useState hook with explicit type."
+  },
+
+  "React useEffect hook": {
+    "prefix": "teffect",
+    "body": ["useEffect$0(() => {", "\t$1", "}, [$2]);"],
+    "description": "Create a useEffect hook"
+  },
+
+  "Styled Components HTML element": {
+    "prefix": "tstyled",
+    "body": [
+      "const ${2:${1/(.*)/${1:/capitalize}/}} = styled.$1`",
+      "\t$3",
+      "`;"
+    ],
+    "description": "Create a Styled Components JSX element"
+  },
+
+  "Styled Components component wrapper": {
+    "prefix": "tstyledcomp",
+    "body": [
+      "const Styled${1/(.*)/${1:/capitalize}/} = styled($1)`",
+      "\t$2",
+      "`;"
+    ],
+    "description": "Create a component wrapper with Styled Components"
+  },
+
+  "Import React and the most common hooks": {
+    "prefix": "timport",
+    "body": ["import React, { useState, useEffect } from 'react';", ""],
+    "description": "Import React, useState and useEffect"
+  }
+}

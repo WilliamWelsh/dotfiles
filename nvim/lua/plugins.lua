@@ -10,29 +10,44 @@ packer.startup(function(use)
   -- Package Manager
   use 'wbthomason/packer.nvim'
 
+  -- Base 16 colors
   use 'RRethy/nvim-base16'
 
-  use 'nvim-lualine/lualine.nvim' -- Statusline
-  use 'nvim-lua/plenary.nvim' -- Common utilities
+  -- Utilities
+  use 'nvim-lua/plenary.nvim'
+
+  -- Pictograms
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
-  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
-  use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/nvim-cmp' -- Completion
-  use 'neovim/nvim-lspconfig' -- LSP
-  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-  use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
+
+  -- LSP Stuff
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/nvim-cmp'
+  use 'neovim/nvim-lspconfig'
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
-
   use 'glepnir/lspsaga.nvim' -- LSP UIs
+
+  -- Autoformatter
+  use 'sbdchd/neoformat'
+  
+  -- Snippets
   use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+
+  -- Syntax Highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-  use 'kyazdani42/nvim-web-devicons' -- File icons
+
+  -- File Icons
+  use 'kyazdani42/nvim-web-devicons'
+
+  -- Telescope
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
+
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
@@ -40,6 +55,8 @@ packer.startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
+
+  -- Tabs
   use 'akinsho/nvim-bufferline.lua'
 
   -- GitHub Copilot
@@ -69,4 +86,12 @@ packer.startup(function(use)
 
   -- Add vertical lines for indents
   use 'lukas-reineke/indent-blankline.nvim'
+
+  -- Statusline
+  use {
+  'nvim-lualine/lualine.nvim',
+    requires = {
+      'kRRethy/nvim-base16',
+    }
+  }
 end)

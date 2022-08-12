@@ -62,7 +62,7 @@ telescope.setup {
   }
 }
 
-telescope.load_extension("file_browser")
+-- telescope.load_extension("file_browser")
 
 vim.keymap.set('n', ';f',
   function()
@@ -74,27 +74,27 @@ vim.keymap.set('n', ';f',
 vim.keymap.set('n', ';g', function()
   builtin.grep_string()
 end)
-vim.keymap.set('n', '\\\\', function()
-  builtin.buffers()
-end)
-vim.keymap.set('n', ';t', function()
-  builtin.help_tags()
-end)
-vim.keymap.set('n', ';;', function()
-  builtin.resume()
-end)
-vim.keymap.set('n', ';e', function()
-  builtin.diagnostics()
-end)
-vim.keymap.set("n", "sf", function()
-  telescope.extensions.file_browser.file_browser({
-    path = "%:p:h",
-    cwd = telescope_buffer_dir(),
-    respect_gitignore = false,
-    hidden = true,
-    grouped = true,
-    previewer = false,
-    initial_mode = "normal",
-    layout_config = { height = 40 }
-  })
-end)
+-- vim.keymap.set('n', '\\\\', function()
+--   builtin.buffers()
+-- end)
+-- vim.keymap.set('n', ';t', function()
+--   builtin.help_tags()
+-- end)
+-- vim.keymap.set('n', ';;', function()
+--   builtin.resume()
+-- end)
+-- vim.keymap.set('n', ';e', function()
+--   builtin.diagnostics()
+-- end)
+-- vim.keymap.set("n", "sf", function()
+--   telescope.extensions.file_browser.file_browser({
+--     path = "%:p:h",
+--     cwd = telescope_buffer_dir(),
+--     respect_gitignore = false,
+--     hidden = true,
+--     grouped = true,
+--     previewer = false,
+--     initial_mode = "normal",
+--     layout_config = { height = 40 }
+--   })
+-- end)

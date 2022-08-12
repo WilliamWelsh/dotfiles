@@ -1,0 +1,15 @@
+{
+  "name": "react-typescript-boilerplate",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./typescript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./typescript.json"
+      }
+    ]
+  }
+}

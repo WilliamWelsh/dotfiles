@@ -86,10 +86,10 @@ vim.g.nvimtree_side = options.view.side
 nvimtree.setup(options)
 
 local highlights = {
-  NvimTreeFolderIcon = { fg = '#61AFEF' },
-  NvimTreeEmptyFolderName = { fg = '#61AFEF' },
-  NvimTreeFolderName = { fg = '#61AFEF' },
-  NvimTreeOpenedFolderName = { fg = '#61AFEF' },
+  NvimTreeFolderIcon = { fg = '#90A4AE' },
+  NvimTreeEmptyFolderName = { fg = '#90A4AE' },
+  NvimTreeFolderName = { fg = '#90A4AE' },
+  NvimTreeOpenedFolderName = { fg = '#90A4AE' },
   NvimTreeWinSeparator = { fg = '#000000' },
 }
 
