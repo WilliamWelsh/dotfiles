@@ -39,7 +39,7 @@ keymap.set('n', '<C-w><down>', '<C-w>-')
 keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 -- CMD + / (iTerm) to comment lines
-keymap.set('n', '<Space>/', '<Plug>(comment_toggle_current_linewise)')
+keymap.set('n', '<Space>/', '<Plug>(comment_toggle_linewise_current)')
 keymap.set('v', '<Space>/', '<Plug>(comment_toggle_linewise_visual)')
 
 -- CMD + B (iTerm) to toggle explorer
