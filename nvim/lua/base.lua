@@ -60,6 +60,9 @@ vim.cmd([[
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
+-- Disable timer on presence plugin
+vim.cmd([[let g:presence_show_time = 0]])
+
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = '*',

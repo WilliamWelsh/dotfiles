@@ -76,7 +76,6 @@ _G.packer_plugins = {
     url = "https://github.com/numToStr/Comment.nvim"
   },
   LuaSnip = {
-    config = { "\27LJ\2\nu\0\0\3\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\4\0B\0\2\1K\0\1\0\1\0\2\24region_check_events\16InsertEnter\fhistory\1\15set_config\vconfig\fluasnip\frequire\0" },
     loaded = true,
     path = "/Users/william/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
@@ -105,6 +104,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/william/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
+  },
+  ["discord-presence.nvim"] = {
+    loaded = true,
+    path = "/Users/william/.local/share/nvim/site/pack/packer/start/discord-presence.nvim",
+    url = "/Users/william/.config/nvim/customPlugins/discord-presence.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -224,10 +228,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-try_loadstring("\27LJ\2\nu\0\0\3\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\4\0B\0\2\1K\0\1\0\1\0\2\24region_check_events\16InsertEnter\fhistory\1\15set_config\vconfig\fluasnip\frequire\0", "config", "LuaSnip")
-time([[Config for LuaSnip]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")

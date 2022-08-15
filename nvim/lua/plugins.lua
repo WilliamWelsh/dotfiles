@@ -94,4 +94,11 @@ packer.startup(function(use)
       'kRRethy/nvim-base16',
     }
   }
+
+  -- Discord Rich Presence
+  -- use 'andweeb/presence.nvim'
+  -- Custom plugin override to disable the timer
+  use '~/.config/nvim/customPlugins/discord-presence.nvim'
+  
+
 end)
