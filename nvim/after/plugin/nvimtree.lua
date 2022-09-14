@@ -26,7 +26,7 @@ local options = {
     hide_root_folder = true,
   },
   git = {
-    enable = false,
+    enable = true,
     ignore = true,
   },
   filesystem_watchers = {
@@ -38,7 +38,7 @@ local options = {
     },
   },
   renderer = {
-    highlight_git = false,
+    highlight_git = true,
     highlight_opened_files = "none",
 
     indent_markers = {
@@ -50,7 +50,7 @@ local options = {
         file = true,
         folder = true,
         folder_arrow = true,
-        git = false,
+        git = true,
       },
 
       glyphs = {
@@ -68,16 +68,18 @@ local options = {
           symlink_open = "",
         },
         git = {
-          unstaged = "✗",
+          unstaged = "●",
           staged = "✓",
           unmerged = "",
           renamed = "➜",
-          untracked = "★",
-          deleted = "",
+          untracked = "U",
+          deleted = "✗",
           ignored = "◌",
         },
       },
     },
+
+    special_files = {}
   },
 }
 
@@ -91,6 +93,10 @@ local highlights = {
   NvimTreeFolderName = { fg = '#90A4AE' },
   NvimTreeOpenedFolderName = { fg = '#90A4AE' },
   NvimTreeWinSeparator = { fg = '#000000' },
+  NvimTreeGitDirty = { fg = '#F7CA88' },
+  NvimFileGitDirty = { fg = '#F7CA88' },
+  NvimTreeFileDirty = { fg = '#F7CA88' },
+  NvimTreeGitNew = { fg = '#A1B56C' },
 }
 
 for group, conf in pairs(highlights) do vim.api.nvim_set_hl(0, group, conf) end

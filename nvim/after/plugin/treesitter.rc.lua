@@ -12,12 +12,9 @@ ts.setup {
   },
   ensure_installed = {
     "tsx",
-    "toml",
     "fish",
-    "php",
     "json",
     "yaml",
-    "swift",
     "css",
     "html",
     "lua"
@@ -25,6 +22,13 @@ ts.setup {
   autotag = {
     enable = true,
   },
+  rainbow = {
+    enable = true,
+    extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  }
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

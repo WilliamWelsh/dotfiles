@@ -42,11 +42,11 @@ cmp.setup({
   },
   window = {
     completion = {
-      border = border "CmpBorder",
+      -- border = border "CmpBorder",
       winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
     },
     documentation = {
-      border = border "CmpDocBorder",
+      -- border = border "CmpDocBorder",
     },
   }
 })

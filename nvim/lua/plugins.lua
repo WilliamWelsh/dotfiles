@@ -17,7 +17,7 @@ packer.startup(function(use)
   use 'nvim-lua/plenary.nvim'
 
   -- Pictograms
-  use 'onsails/lspkind-nvim' -- vscode-like pictograms
+  use 'onsails/lspkind-nvim' -- vscode pictograms
 
   -- LSP Stuff
   use 'hrsh7th/cmp-buffer'
@@ -27,18 +27,67 @@ packer.startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use 'glepnir/lspsaga.nvim' -- LSP UIs
+  use 'jose-elias-alvarez/null-ls.nvim'
 
-  -- Autoformatter
-  use 'sbdchd/neoformat'
-  
+  use { -- Signature help in insert mode
+    'ray-x/lsp_signature.nvim',
+    config = function()
+        require('lsp_signature').setup({
+          bind = true,
+          handler_opts = {
+            border = "rounded"
+          }
+  })
+    end
+  }
+
+  -- Preview live Markdown in the browser
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
+  -- Color rgb and hexadecimal backgrounds
+    use({
+  "Akianonymus/nvim-colorizer.lua",
+  config = function()
+    require("colorizer").setup()
+  end,
+  })
+
   -- Snippets
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
+
+
+-- Disable search highlighting when done searching
+  use 'romainl/vim-cool'
+
 
   -- Syntax Highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
+  }
+
+  -- Sticky header when in functions and other nested stuff
+  use {
+    'nvim-treesitter/nvim-treesitter-context',
+    config = function()
+        require('treesitter-context').setup()
+    end
+  }
+
+  -- Matching rainbow parantheses
+  use 'p00f/nvim-ts-rainbow'
+
+    -- Annotation Toolkit
+  use {
+    "danymat/neogen",
+    config = function()
+        require('neogen').setup({})
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
   }
 
   -- File Icons
@@ -50,11 +99,6 @@ packer.startup(function(use)
 
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
-  use 'norcalli/nvim-colorizer.lua'
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-  })
 
   -- Tabs
   use 'akinsho/nvim-bufferline.lua'
@@ -99,6 +143,22 @@ packer.startup(function(use)
   -- use 'andweeb/presence.nvim'
   -- Custom plugin override to disable the timer
   use '~/.config/nvim/customPlugins/discord-presence.nvim'
-  
+
+  -- Show some stuff on the scrollbar
+  use {
+    'petertriho/nvim-scrollbar',
+      config = function()
+      require('scrollbar').setup()
+    end
+  }
+
+  use {
+    "akinsho/toggleterm.nvim", tag = '*',
+    config = function()
+      require("toggleterm").setup({})
+    end
+  }
+
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
 end)
