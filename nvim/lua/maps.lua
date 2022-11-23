@@ -16,7 +16,7 @@ keymap.set('n', '<C-a>', 'gg<S-v>G')
 keymap.set('n', 'te', ':tabedit')
 
 -- Close tab (CMD + W in iTerm)
-keymap.set('n', ';q', ':tabclose<Return>')
+keymap.set('n', ';q', ':bdelete<Return>')
 
 -- Split window
 keymap.set('n', 'ss', ':split<Return><C-w>w')
@@ -47,3 +47,6 @@ keymap.set('n', ';n', ':NvimTreeToggle<Return>')
 
 -- Shift + CMD + F (iTerm)
 keymap.set('n', ';h', ':lua require(\'spectre\').open_visual()<Return>')
+
+-- Greatest remap ever (lol)
+keymap.set("v", "<leader>p", "\"_dP")

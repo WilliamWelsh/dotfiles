@@ -1,11 +1,11 @@
 .DS_Store
 configstore/
-fish/
 github-copilot/
-iterm2/
 yarn
 nvim_vsvim/
 firebase/
 op/
 omf/
 gh/
+planetscale/
+iterm2/

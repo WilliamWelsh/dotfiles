@@ -48,11 +48,11 @@ packer.startup(function(use)
   })
 
   -- Color rgb and hexadecimal backgrounds
-    use({
-  "Akianonymus/nvim-colorizer.lua",
-  config = function()
-    require("colorizer").setup()
-  end,
+  use({
+    "Akianonymus/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
   })
 
   -- Snippets
@@ -60,7 +60,7 @@ packer.startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
 
 
--- Disable search highlighting when done searching
+  -- Disable search highlighting when done searching
   use 'romainl/vim-cool'
 
 
@@ -96,6 +96,7 @@ packer.startup(function(use)
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
+  use 'gbrlsnchs/telescope-lsp-handlers.nvim'
 
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
@@ -139,10 +140,7 @@ packer.startup(function(use)
     }
   }
 
-  -- Discord Rich Presence
-  -- use 'andweeb/presence.nvim'
-  -- Custom plugin override to disable the timer
-  use '~/.config/nvim/customPlugins/discord-presence.nvim'
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Show some stuff on the scrollbar
   use {
@@ -152,13 +150,30 @@ packer.startup(function(use)
     end
   }
 
-  use {
-    "akinsho/toggleterm.nvim", tag = '*',
-    config = function()
-      require("toggleterm").setup({})
-    end
-  }
+  use 'voldikss/vim-floaterm'
 
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
+
+  use 'kdheepak/lazygit.nvim'
+
+  use("mbbill/undotree")
+
+--     use 'MunifTanjim/nui.nvim'
+--
+--     use 'rcarriga/nvim-notify'
+--
+--   use({
+--   "folke/noice.nvim",
+--   event = "VimEnter",
+--   config = function()
+--     require("noice").setup()
+--   end,
+--   requires = {
+--     "MunifTanjim/nui.nvim",
+--     "rcarriga/nvim-notify",
+--     }
+-- })
 
 end)

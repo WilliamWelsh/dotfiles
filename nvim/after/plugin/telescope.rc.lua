@@ -72,6 +72,11 @@ vim.keymap.set('n', 'ff',
     })
   end)
 
+vim.keymap.set('n', 'fr',
+  function()
+    require('telescope.builtin').lsp_references()
+  end)
+
 vim.keymap.set('n', ';f',
   function()
     builtin.find_files({
@@ -89,6 +94,12 @@ vim.keymap.set('n', 'fb',
   function()
     builtin.buffers()
   end)
+
+vim.keymap.set('n', 'fj',
+  function()
+    builtin.jumplist()
+  end)
+
 
 vim.keymap.set('n', ';g', function()
   builtin.grep_string()

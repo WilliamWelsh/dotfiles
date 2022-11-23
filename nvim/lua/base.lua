@@ -26,6 +26,8 @@ vim.opt.wrap = true
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.cmdheight = 0;
+vim.opt.cursorcolumn = true;
 
 -- Hybrid Line Numbers
 vim.wo.number = true
@@ -51,9 +53,6 @@ vim.opt.fillchars = {
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
-
--- Disable timer on presence plugin
-vim.cmd([[let g:presence_show_time = 0]])
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
