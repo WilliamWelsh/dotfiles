@@ -1,8 +1,8 @@
 vim.cmd("autocmd!")
 
-vim.scriptencoding = 'utf-8'
-vim.opt.encoding = 'utf-8'
-vim.opt.fileencoding = 'utf-8'
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 
 vim.opt.title = true
 vim.opt.autoindent = true
@@ -14,19 +14,19 @@ vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
 vim.opt.expandtab = true
 vim.opt.scrolloff = 10
-vim.opt.shell = 'fish'
-vim.opt.backupskip = { '/tmp/*', '/private/tmp/*' }
-vim.opt.inccommand = 'split'
+vim.opt.shell = "fish"
+vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
+vim.opt.inccommand = "split"
 vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
 vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.wrap = true
-vim.opt.backspace = { 'start', 'eol', 'indent' }
-vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
-vim.opt.wildignore:append { '*/node_modules/*' }
-vim.opt.cmdheight = 0;
+vim.opt.backspace = { "start", "eol", "indent" }
+vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
+vim.opt.wildignore:append({ "*/node_modules/*" })
+vim.opt.cmdheight = 0
 -- vim.opt.cursorcolumn = true;
 
 -- Hybrid Line Numbers
@@ -41,13 +41,13 @@ vim.opt.mouse = "a"
 -- vim.api.nvim_command([[autocmd BufWritePre *.tsx Prettier]])
 
 vim.opt.fillchars = {
-  vert = "│",
-  fold = "⠀",
-  eob = " ", -- suppress ~ at EndOfBuffer
-  msgsep = "‾",
-  foldopen = "▾",
-  foldsep = "│",
-  foldclose = "▸",
+	vert = "│",
+	fold = "⠀",
+	eob = " ", -- suppress ~ at EndOfBuffer
+	msgsep = "‾",
+	foldopen = "▾",
+	foldsep = "│",
+	foldclose = "▸",
 }
 
 -- Undercurl
@@ -56,9 +56,9 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = '*',
-  command = "set nopaste"
+	pattern = "*",
+	command = "set nopaste",
 })
 
 -- Add asterisks in block comments
-vim.opt.formatoptions:append { 'r' }
+vim.opt.formatoptions:append({ "r" })

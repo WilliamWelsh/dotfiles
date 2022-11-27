@@ -1,184 +1,186 @@
 local status, packer = pcall(require, "packer")
-if (not status) then
-  print("Packer is not installed")
-  return
+if not status then
+	print("Packer is not installed")
+	return
 end
 
-vim.cmd [[packadd packer.nvim]]
+vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
-  -- Package Manager
-  use 'wbthomason/packer.nvim'
+	-- Package Manager
+	use("wbthomason/packer.nvim")
 
-  -- Base 16 colors
-  use 'RRethy/nvim-base16'
+	-- Base 16 colors
+	use("RRethy/nvim-base16")
 
-  -- Utilities
-  use 'nvim-lua/plenary.nvim'
+	-- Utilities
+	use("nvim-lua/plenary.nvim")
 
-  -- Pictograms
-  use 'onsails/lspkind-nvim' -- vscode pictograms
+	-- Pictograms
+	use("onsails/lspkind-nvim") -- vscode pictograms
 
-  -- LSP Stuff
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/nvim-cmp'
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'glepnir/lspsaga.nvim' -- LSP UIs
-  use 'jose-elias-alvarez/null-ls.nvim'
+	-- LSP Stuff
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/nvim-cmp")
+	use("neovim/nvim-lspconfig")
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+	use("glepnir/lspsaga.nvim") -- LSP UIs
+	use("jose-elias-alvarez/null-ls.nvim")
 
-  use { -- Signature help in insert mode
-    'ray-x/lsp_signature.nvim',
-    config = function()
-        require('lsp_signature').setup({
-          bind = true,
-          handler_opts = {
-            border = "rounded"
-          }
-  })
-    end
-  }
+	use({ -- Signature help in insert mode
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require("lsp_signature").setup({
+				bind = true,
+				handler_opts = {
+					border = "rounded",
+				},
+			})
+		end,
+	})
 
-  -- Preview live Markdown in the browser
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-  })
+	-- Preview live Markdown in the browser
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 
-  -- Color rgb and hexadecimal backgrounds
-  use({
-    "Akianonymus/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup()
-    end,
-  })
+	-- Color rgb and hexadecimal backgrounds
+	use({
+		"Akianonymus/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	})
 
-  -- Snippets
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
+	-- Snippets
+	use("L3MON4D3/LuaSnip")
+	use("saadparwaiz1/cmp_luasnip")
 
+	-- Disable search highlighting when done searching
+	use("romainl/vim-cool")
 
-  -- Disable search highlighting when done searching
-  use 'romainl/vim-cool'
+	-- Syntax Highlighting
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
 
+	-- Sticky header when in functions and other nested stuff
+	use({
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require("treesitter-context").setup()
+		end,
+	})
 
-  -- Syntax Highlighting
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
+	-- Matching rainbow parantheses
+	use("p00f/nvim-ts-rainbow")
 
-  -- Sticky header when in functions and other nested stuff
-  use {
-    'nvim-treesitter/nvim-treesitter-context',
-    config = function()
-        require('treesitter-context').setup()
-    end
-  }
+	-- Annotation Toolkit
+	use({
+		"danymat/neogen",
+		config = function()
+			require("neogen").setup({})
+		end,
+		requires = "nvim-treesitter/nvim-treesitter",
+	})
 
-  -- Matching rainbow parantheses
-  use 'p00f/nvim-ts-rainbow'
+	-- File Icons
+	use("kyazdani42/nvim-web-devicons")
 
-    -- Annotation Toolkit
-  use {
-    "danymat/neogen",
-    config = function()
-        require('neogen').setup({})
-    end,
-    requires = "nvim-treesitter/nvim-treesitter",
-  }
+	-- Telescope
+	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-file-browser.nvim")
+	use("gbrlsnchs/telescope-lsp-handlers.nvim")
 
-  -- File Icons
-  use 'kyazdani42/nvim-web-devicons'
+	use("windwp/nvim-autopairs")
+	use("windwp/nvim-ts-autotag")
 
-  -- Telescope
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'gbrlsnchs/telescope-lsp-handlers.nvim'
+	-- GitHub Copilot
+	use("github/copilot.vim")
 
-  use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
+	-- Commenting Plugin
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 
-  -- GitHub Copilot
-  use 'github/copilot.vim'
+	-- Tomorrow Night Theme
+	use("chriskempson/base16-vim")
 
-  -- Commenting Plugin
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-  }
+	-- Find & Replace Plugin
+	use("windwp/nvim-spectre")
 
-  -- Tomorrow Night Theme
-  use 'chriskempson/base16-vim'
+	-- File Explorer
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons", -- optional, for file icons
+		},
+	})
 
-  -- Find & Replace Plugin
-  use 'windwp/nvim-spectre'
+	-- Add vertical lines for indents
+	use("lukas-reineke/indent-blankline.nvim")
 
-  -- File Explorer
-  use {
-  'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icons
-    }
-  }
+	-- Statusline
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = {
+			"kRRethy/nvim-base16",
+		},
+	})
 
-  -- Add vertical lines for indents
-  use 'lukas-reineke/indent-blankline.nvim'
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
-  -- Statusline
-  use {
-  'nvim-lualine/lualine.nvim',
-    requires = {
-      'kRRethy/nvim-base16',
-    }
-  }
+	-- Show some stuff on the scrollbar
+	use({
+		"petertriho/nvim-scrollbar",
+		config = function()
+			require("scrollbar").setup()
+		end,
+	})
 
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+	use("voldikss/vim-floaterm")
 
-  -- Show some stuff on the scrollbar
-  use {
-    'petertriho/nvim-scrollbar',
-      config = function()
-      require('scrollbar').setup()
-    end
-  }
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+		config = function()
+			require("toggleterm").setup()
+		end,
+	})
 
-  use 'voldikss/vim-floaterm'
+	use("kdheepak/lazygit.nvim")
 
-  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup()
-  end}
+	use("mbbill/undotree")
 
-  use 'kdheepak/lazygit.nvim'
+	--     use 'MunifTanjim/nui.nvim'
+	--
+	--     use 'rcarriga/nvim-notify'
+	--
+	--   use({
+	--   "folke/noice.nvim",
+	--   event = "VimEnter",
+	--   config = function()
+	--     require("noice").setup()
+	--   end,
+	--   requires = {
+	--     "MunifTanjim/nui.nvim",
+	--     "rcarriga/nvim-notify",
+	--     }
+	-- })
 
-  use("mbbill/undotree")
-
---     use 'MunifTanjim/nui.nvim'
---
---     use 'rcarriga/nvim-notify'
---
---   use({
---   "folke/noice.nvim",
---   event = "VimEnter",
---   config = function()
---     require("noice").setup()
---   end,
---   requires = {
---     "MunifTanjim/nui.nvim",
---     "rcarriga/nvim-notify",
---     }
--- })
-
-  -- Visual Tabs for Buffers (currently cokeline)
-  -- use 'akinsho/nvim-bufferline.lua'
-  use({
-    'noib3/nvim-cokeline',
-    requires = 'kyazdani42/nvim-web-devicons',
-  })
-
-
+	-- Visual Tabs for Buffers (currently cokeline)
+	-- use 'akinsho/nvim-bufferline.lua'
+	use({
+		"noib3/nvim-cokeline",
+		requires = "kyazdani42/nvim-web-devicons",
+	})
 end)

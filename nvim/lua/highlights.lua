@@ -1,9 +1,9 @@
 vim.opt.cursorline = true
 vim.opt.winblend = 0
-vim.opt.wildoptions = 'pum'
+vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 0
 vim.opt.termguicolors = true
-vim.opt.background = 'dark'
+vim.opt.background = "dark"
 
 -- fg_bg = function(group, fgcol, bgcol)
 --    vim.cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
