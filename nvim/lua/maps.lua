@@ -12,9 +12,6 @@ keymap.set('n', 'dw', 'vb"_d')
 -- Select all
 keymap.set('n', '<C-a>', 'gg<S-v>G')
 
--- New tab
-keymap.set('n', 'te', ':tabedit')
-
 -- Close tab (CMD + W in iTerm)
 keymap.set('n', ';q', ':bdelete<Return>')
 

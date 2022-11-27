@@ -1,5 +1,4 @@
 require('base')
-require('highlights')
 require('maps')
 require('plugins')
 
@@ -15,3 +14,6 @@ end
 if is_win then
   require('windows')
 end
+
+require('highlights')
+

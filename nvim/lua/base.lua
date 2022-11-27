@@ -27,7 +27,7 @@ vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.cmdheight = 0;
-vim.opt.cursorcolumn = true;
+-- vim.opt.cursorcolumn = true;
 
 -- Hybrid Line Numbers
 vim.wo.number = true

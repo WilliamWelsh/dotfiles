@@ -8,8 +8,7 @@ null_ls.setup ({
     null_ls.builtins.formatting.prettierd.with({
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars", "prisma" }
     }),
-    -- null_ls.builtins.formatting.rustfmt,
-    -- null_ls.builtins.formatting.rustywind,
+    null_ls.builtins.formatting.rustfmt,
     null_ls.builtins.diagnostics.fish,
   },
   on_attach = function(client, bufnr)

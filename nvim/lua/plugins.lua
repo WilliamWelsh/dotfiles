@@ -101,9 +101,6 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
 
-  -- Tabs
-  use 'akinsho/nvim-bufferline.lua'
-
   -- GitHub Copilot
   use 'github/copilot.vim'
 
@@ -175,5 +172,13 @@ packer.startup(function(use)
 --     "rcarriga/nvim-notify",
 --     }
 -- })
+
+  -- Visual Tabs for Buffers (currently cokeline)
+  -- use 'akinsho/nvim-bufferline.lua'
+  use({
+    'noib3/nvim-cokeline',
+    requires = 'kyazdani42/nvim-web-devicons',
+  })
+
 
 end)

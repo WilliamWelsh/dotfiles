@@ -74,7 +74,7 @@ vim.keymap.set('n', 'ff',
 
 vim.keymap.set('n', 'fr',
   function()
-    require('telescope.builtin').lsp_references()
+    builtin.lsp_references()
   end)
 
 vim.keymap.set('n', ';f',
@@ -100,7 +100,30 @@ vim.keymap.set('n', 'fj',
     builtin.jumplist()
   end)
 
+vim.keymap.set('n', 'fe',
+  function()
+    builtin.diagnostics()
+  end)
 
-vim.keymap.set('n', ';g', function()
-  builtin.grep_string()
-end)
+
+
+-- vim.keymap.set('n', ';g', function()
+--   builtin.grep_string()
+-- end)
+
+
+-- My goofy ah left my highlights here
+vim.api.nvim_set_hl(0, "Normal", {bg="NONE"})
+vim.api.nvim_set_hl(0, "NonText", {bg="NONE"})
+vim.api.nvim_set_hl(0, "Folded", {bg="NONE"})
+vim.api.nvim_set_hl(0, "SpecialKey", {bg="NONE"})
+vim.api.nvim_set_hl(0, "VertSplit", {bg="NONE"})
+vim.api.nvim_set_hl(0, "LineNr", {bg="NONE"})
+vim.api.nvim_set_hl(0, "NonText", {bg="NONE"})
+vim.api.nvim_set_hl(0, "SignColumn", {bg="NONE"})
+vim.api.nvim_set_hl(0, "EndOfBuffer", {bg="NONE"})
+vim.api.nvim_set_hl(0, "NormalNC", {bg="NONE"})
+vim.api.nvim_set_hl(0, "TabLineFill", {bg="NONE"})
+-- vim.api.nvim_set_hl(0, "CursorLine", {bg="#FF0000", blend=10})
+--
+
