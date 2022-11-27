@@ -161,6 +161,13 @@ packer.startup(function(use)
 
 	use("mbbill/undotree")
 
+	use({
+		"ggandor/leap.nvim",
+		config = function()
+			require("leap").add_default_mappings()
+		end,
+	})
+
 	--     use 'MunifTanjim/nui.nvim'
 	--
 	--     use 'rcarriga/nvim-notify'
