@@ -57,6 +57,11 @@ packer.startup(function(use)
 		end,
 	})
 
+	-- Commenting Plugin
+	use({
+		"tpope/vim-commentary",
+	})
+
 	-- Snippets
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
@@ -77,6 +82,9 @@ packer.startup(function(use)
 			require("treesitter-context").setup()
 		end,
 	})
+
+	-- Helps with commenting tsx stuff
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Matching rainbow parantheses
 	use("p00f/nvim-ts-rainbow")
@@ -103,14 +111,6 @@ packer.startup(function(use)
 
 	-- GitHub Copilot
 	use("github/copilot.vim")
-
-	-- Commenting Plugin
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	})
 
 	-- Tomorrow Night Theme
 	use("chriskempson/base16-vim")

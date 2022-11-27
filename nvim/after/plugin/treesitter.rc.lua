@@ -31,6 +31,9 @@ ts.setup({
 		-- colors = {}, -- table of hex strings
 		-- termcolors = {} -- table of colour name strings
 	},
+	context_commentstring = {
+		enable = true,
+	},
 })
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
