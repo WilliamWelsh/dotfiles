@@ -100,6 +100,10 @@ vim.keymap.set("n", "fe", function()
 	builtin.diagnostics()
 end)
 
+vim.keymap.set("n", "fs", function()
+	builtin.lsp_document_symbols()
+end)
+
 -- vim.keymap.set('n', ';g', function()
 --   builtin.grep_string()
 -- end)
