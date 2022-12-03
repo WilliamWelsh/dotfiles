@@ -62,3 +62,5 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
+
+vim.g.copilot_node_command = "/Users/william/.nvm/versions/node/v16.18.1/bin/node"
