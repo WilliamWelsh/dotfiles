@@ -10,6 +10,8 @@ packer.startup(function(use)
 	-- Package Manager
 	use("wbthomason/packer.nvim")
 
+	use("DaikyXendo/nvim-material-icon")
+
 	-- Base 16 colors
 	use("RRethy/nvim-base16")
 
@@ -29,6 +31,10 @@ packer.startup(function(use)
 	use("glepnir/lspsaga.nvim") -- LSP UIs
 	use("jose-elias-alvarez/null-ls.nvim")
 
+	use("simrat39/rust-tools.nvim")
+
+	use("mfussenegger/nvim-dap")
+
 	use({ -- Signature help in insert mode
 		"ray-x/lsp_signature.nvim",
 		config = function()
@@ -39,6 +45,12 @@ packer.startup(function(use)
 				},
 			})
 		end,
+	})
+
+	-- Floating buffer messages
+	use({
+		"AckslD/messages.nvim",
+		config = 'require("messages").setup()',
 	})
 
 	-- Preview live Markdown in the browser
@@ -53,14 +65,26 @@ packer.startup(function(use)
 	use({
 		"Akianonymus/nvim-colorizer.lua",
 		config = function()
-			require("colorizer").setup()
+			require("colorizer").setup({
+				"!tsx",
+				"!css",
+			})
+		end,
+	})
+
+	-- Same as above but for Tailwind classes
+	use({
+		"mrshmllow/document-color.nvim",
+		config = function()
+			require("document-color").setup({
+				-- Default options
+				mode = "background", -- "background" | "foreground" | "single"
+			})
 		end,
 	})
 
 	-- Commenting Plugin
-	use({
-		"tpope/vim-commentary",
-	})
+	use("tpope/vim-commentary")
 
 	-- Snippets
 	use("L3MON4D3/LuaSnip")
@@ -120,7 +144,7 @@ packer.startup(function(use)
 
 	-- File Explorer
 	use({
-		"kyazdani42/nvim-tree.lua",
+		"DaikyXendo/nvim-tree.lua",
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icons
 		},
@@ -168,26 +192,13 @@ packer.startup(function(use)
 		end,
 	})
 
-	--     use 'MunifTanjim/nui.nvim'
-	--
-	--     use 'rcarriga/nvim-notify'
-	--
-	--   use({
-	--   "folke/noice.nvim",
-	--   event = "VimEnter",
-	--   config = function()
-	--     require("noice").setup()
-	--   end,
-	--   requires = {
-	--     "MunifTanjim/nui.nvim",
-	--     "rcarriga/nvim-notify",
-	--     }
-	-- })
-
 	-- Visual Tabs for Buffers (currently cokeline)
 	-- use 'akinsho/nvim-bufferline.lua'
 	use({
 		"noib3/nvim-cokeline",
 		requires = "kyazdani42/nvim-web-devicons",
 	})
+
+	-- Generate screenshots of code to clipboard
+	use({ "krivahtoo/silicon.nvim", run = "./install.sh" })
 end)

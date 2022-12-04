@@ -47,3 +47,18 @@ keymap.set("n", ";h", ":lua require('spectre').open_visual()<Return>")
 
 -- Greatest remap ever (lol)
 keymap.set("v", "<leader>p", '"_dP')
+
+vim.g.mapleader = " "
+
+-- 1 trillion iq remaps to stay centered @theprimeagen
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+vim.keymap.set("n", "]]", "]]zzzv", opts)
+
+-- nnoremap("<C-d>", "<C-d>zz")
+-- nnoremap("<C-u>", "<C-u>zz")
+
+vim.keymap.set("v", "<Leader>s", function()
+	require("silicon").visualise_api({})
+end)

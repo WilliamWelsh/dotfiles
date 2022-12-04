@@ -8,7 +8,7 @@ local options = {
 	filters = {
 		dotfiles = false,
 	},
-	disable_netrw = true,
+	disable_netrw = false,
 	hijack_netrw = true,
 	open_on_setup = false,
 	ignore_ft_on_setup = { "alpha" },
