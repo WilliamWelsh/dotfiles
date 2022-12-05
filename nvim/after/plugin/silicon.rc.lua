@@ -4,8 +4,8 @@ if not status then
 end
 
 silicon.setup({
-	font = "JetBrainsMono Nerd Font Mono=14",
-	theme = "OneHalfDark",
+	font = "JetBrainsMono Nerd Font Mono=16",
+	theme = "base16-tomorrow.dark",
 	background = "#949FA9",
 	shadow = {
 		blur_radius = 20.0,
@@ -13,4 +13,6 @@ silicon.setup({
 		offset_y = 0,
 		color = "#000000",
 	},
+	pad_horiz = 50,
+	pad_vert = 40,
 })

@@ -58,7 +58,3 @@ vim.keymap.set("n", "]]", "]]zzzv", opts)
 
 -- nnoremap("<C-d>", "<C-d>zz")
 -- nnoremap("<C-u>", "<C-u>zz")
-
-vim.keymap.set("v", "<Leader>s", function()
-	require("silicon").visualise_api({})
-end)

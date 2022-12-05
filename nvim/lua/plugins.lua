@@ -65,10 +65,7 @@ packer.startup(function(use)
 	use({
 		"Akianonymus/nvim-colorizer.lua",
 		config = function()
-			require("colorizer").setup({
-				"!tsx",
-				"!css",
-			})
+			require("colorizer").setup({})
 		end,
 	})
 
