@@ -198,4 +198,19 @@ packer.startup(function(use)
 
 	-- Generate screenshots of code to clipboard
 	use({ "krivahtoo/silicon.nvim", run = "./install.sh" })
+
+	-- Pointless fun
+	use("eandrju/cellular-automaton.nvim")
+
+	-- Lua
+	use({
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").setup({
+				window = {
+					backdrop = 0,
+				},
+			})
+		end,
+	})
 end)

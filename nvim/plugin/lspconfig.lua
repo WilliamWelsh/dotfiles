@@ -97,6 +97,12 @@ nvim_lsp.tsserver.setup({
 	},
 })
 
+nvim_lsp.eslint.setup({
+	on_attach = on_attach,
+	filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
+	capabilities = capabilities,
+})
+
 nvim_lsp.astro.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
