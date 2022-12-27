@@ -54,6 +54,8 @@ vim.g.mapleader = " "
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+vim.keymap.set("n", "{", "{zz", opts)
+vim.keymap.set("n", "}", "}zz", opts)
 vim.keymap.set("n", "]]", "]]zzzv", opts)
 
 -- nnoremap("<C-d>", "<C-d>zz")

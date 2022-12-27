@@ -120,5 +120,10 @@ vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
+vim.g.neovide_transparency = 0.8
+vim.g.transparency = 0.8
+vim.g.transparency = 0.8
+
+-- vim.g.neovide_background_color = '#0f1117'
 -- vim.api.nvim_set_hl(0, "CursorLine", {bg="#FF0000", blend=10})
 --

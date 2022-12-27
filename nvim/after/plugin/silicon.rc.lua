@@ -5,7 +5,7 @@ end
 
 silicon.setup({
 	font = "JetBrainsMono Nerd Font Mono=16",
-	-- theme = "GitHub",
+	theme = "GitHub",
 	-- theme = "base16-tomorrow.dark",
 	background = "#949FA9",
 	shadow = {

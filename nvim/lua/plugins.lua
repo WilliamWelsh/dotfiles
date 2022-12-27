@@ -197,7 +197,7 @@ packer.startup(function(use)
 	})
 
 	-- Generate screenshots of code to clipboard
-	use({ "krivahtoo/silicon.nvim", run = "./install.sh" })
+	use({ "krivahtoo/silicon.nvim", run = "./install.sh build" })
 
 	-- Pointless fun
 	use("eandrju/cellular-automaton.nvim")
