@@ -58,5 +58,10 @@ vim.keymap.set("n", "{", "{zz", opts)
 vim.keymap.set("n", "}", "}zz", opts)
 vim.keymap.set("n", "]]", "]]zzzv", opts)
 
--- nnoremap("<C-d>", "<C-d>zz")
--- nnoremap("<C-u>", "<C-u>zz")
+-- Neovide (Command as meta)
+vim.g.neovide_input_macos_alt_is_meta = true
+keymap.set("n", "<D-s>", "<Esc>:w<Return>")
+keymap.set("i", "<D-s>", "<Esc>:w<Return>")
+keymap.set("n", "<D-w>", ":bdelete<Return>")
+keymap.set("n", "<D-b>", ":NvimTreeToggle<Return>")
+keymap.set("n", "<D-.>", "<Cmd>Lspsaga code_action<CR>", opts)

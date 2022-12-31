@@ -2,16 +2,19 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter-context",
 		config = true,
+		lazy = false,
 	},
-	{ "JoosepAlviste/nvim-ts-context-commentstring" },
-	{ "p00f/nvim-ts-rainbow" },
+	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = false },
+	{ "p00f/nvim-ts-rainbow", lazy = false },
 	{
 		"windwp/nvim-ts-autotag",
 		config = true,
+		lazy = false,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		lazy = false,
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				highlight = {

@@ -1,6 +1,9 @@
 return {
 	"noib3/nvim-cokeline",
 	config = function()
+		vim.api.nvim_set_keymap("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { silent = true })
+		vim.api.nvim_set_keymap("n", "<Tab>", "<Plug>(cokeline-focus-next)", { silent = true })
+
 		local get_hex = require("cokeline/utils").get_hex
 		local mappings = require("cokeline/mappings")
 

@@ -1,62 +1,48 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = { "nvim-telescope/telescope-file-browser.nvim", "gbrlsnchs/telescope-lsp-handlers.nvim" },
-	keys = {
-		{
-			"<Leader>ff",
-			function()
-				require("telescope.builtin").find_files({
-					no_ignore = false,
-					hidden = true,
-				})
-			end,
-		},
-		{
-			"<Leader>fr",
-			function()
-				require("telescope.builtin").find_references()
-			end,
-		},
-		{
-			"<Leader>fg",
-			function()
-				require("telescope.builtin").live_grep()
-			end,
-		},
-		{
-			"<Leader>fb",
-			function()
-				require("telescope.builtin").buffers()
-			end,
-		},
-		{
-			"<Leader>fj",
-			function()
-				require("telescope.builtin").jumplist()
-			end,
-		},
-		{
-			"<Leader>fs",
-			function()
-				require("telescope.builtin").lsp_document_symbols()
-			end,
-		},
-		{
-			"<Leader>fe",
-			function()
-				require("telescope.builtin").diagnostics()
-			end,
-		},
-	},
+	lazy = false,
 	config = function()
 		local actions = require("telescope.actions")
 		local builtin = require("telescope.builtin")
 
-		local function telescope_buffer_dir()
-			return vim.fn.expand("%:p:h")
-		end
+		vim.keymap.set("n", "<Leader>ff", function()
+			builtin.find_files({
+				no_ignore = false,
+				hidden = true,
+			})
+		end)
 
-		local fb_actions = require("telescope").extensions.file_browser.actions
+		vim.keymap.set("n", "<Leader>fr", function()
+			builtin.lsp_references()
+		end)
+
+		vim.keymap.set("n", ";f", function()
+			builtin.find_files({
+				no_ignore = false,
+				hidden = true,
+			})
+		end)
+
+		vim.keymap.set("n", "<Leader>fg", function()
+			builtin.live_grep()
+		end)
+
+		vim.keymap.set("n", "<Leader>fb", function()
+			builtin.buffers()
+		end)
+
+		vim.keymap.set("n", "<Leader>fj", function()
+			builtin.jumplist()
+		end)
+
+		vim.keymap.set("n", "<Leader>fe", function()
+			builtin.diagnostics()
+		end)
+
+		vim.keymap.set("n", "<Leader>fs", function()
+			builtin.lsp_document_symbols()
+		end)
 
 		require("telescope").setup({
 			defaults = {

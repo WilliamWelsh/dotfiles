@@ -5,6 +5,10 @@ vim.opt.pumblend = 0
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
+vim.g.neovide_transparency = 0.8
+vim.g.transparency = 0.8
+vim.g.transparency = 0.8
+
 vim.api.nvim_set_hl(0, "Normal", {
 	bg = "NONE",
 })
@@ -39,6 +43,12 @@ vim.api.nvim_set_hl(0, "TabLineFill", {
 	bg = "NONE",
 })
 
-vim.g.neovide_transparency = 0.8
-vim.g.transparency = 0.8
-vim.g.transparency = 0.8
+vim.api.nvim_set_hl(0, "CursorLineNr", {
+	bg = "NONE",
+})
+vim.api.nvim_set_hl(0, "CursorLine", {
+	bg = "NONE",
+})
+
+-- 			Group.new("CursorLine", colors.none, colors.base03, styles.NONE, colors.base1)
+-- 			Group.new("CursorLineNr", colors.yellow, colors.black, styles.NONE, colors.base1)
