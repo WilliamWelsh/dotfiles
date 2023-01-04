@@ -1,6 +1,11 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	dependencies = { "nvim-telescope/telescope-file-browser.nvim", "gbrlsnchs/telescope-lsp-handlers.nvim" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope-file-browser.nvim",
+		"gbrlsnchs/telescope-lsp-handlers.nvim",
+		"debugloop/telescope-undo.nvim",
+	},
 	lazy = false,
 	config = function()
 		local actions = require("telescope.actions")
@@ -89,14 +94,33 @@ return {
 				file_previewer = require("telescope.previewers").vim_buffer_cat.new,
 				grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 				qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-				-- Developer configurations: Not meant for general override
 				buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 				mappings = {
 					n = {
 						["q"] = actions.close,
 					},
+					i = {
+						["<c-j>"] = actions.move_selection_next,
+						["<c-k>"] = actions.move_selection_previous,
+						["<esc>"] = actions.close,
+					},
+				},
+			},
+			extensions = {
+				undo = {
+					side_by_side = true,
+					mappings = {
+						i = {
+							["<cr>"] = require("telescope-undo.actions").yank_additions,
+							["<S-cr>"] = require("telescope-undo.actions").yank_deletions,
+							["<C-cr>"] = require("telescope-undo.actions").restore,
+						},
+					},
 				},
 			},
 		})
+
+		require("telescope").load_extension("undo")
+		vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
 	end,
 }
