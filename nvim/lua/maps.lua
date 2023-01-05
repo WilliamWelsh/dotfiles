@@ -36,8 +36,8 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- CMD + / (iTerm) to comment lines
-keymap.set("n", "<Space>/", "<Plug>CommentaryLine")
-keymap.set("v", "<Space>/", "<Plug>Commentary")
+-- keymap.set("n", "<Space>/", "<Plug>CommentaryLine")
+-- keymap.set("v", "<Space>/", "<Plug>Commentary")
 
 -- CMD + B (iTerm) to toggle explorer
 keymap.set("n", ";n", ":NvimTreeToggle<Return>")
@@ -58,7 +58,7 @@ vim.keymap.set("n", "{", "{zz", opts)
 vim.keymap.set("n", "}", "}zz", opts)
 vim.keymap.set("n", "]]", "]]zzzv", opts)
 
--- Neovide (Command as meta)
+-- Command as meta in apps that support it
 vim.g.neovide_input_macos_alt_is_meta = true
 keymap.set("n", "<D-s>", "<Esc>:w<Return>")
 keymap.set("i", "<D-s>", "<Esc>:w<Return>")
