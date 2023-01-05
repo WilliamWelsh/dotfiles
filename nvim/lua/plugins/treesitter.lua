@@ -14,7 +14,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		lazy = false,
+		event = "BufReadPost",
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				highlight = {

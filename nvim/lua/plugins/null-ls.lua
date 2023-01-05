@@ -1,5 +1,6 @@
 return {
 	"jose-elias-alvarez/null-ls.nvim",
+	event = "VeryLazy",
 	config = function()
 		local augroup_format = vim.api.nvim_create_augroup("Format", {
 			clear = true,

@@ -6,7 +6,7 @@ return {
 		"gbrlsnchs/telescope-lsp-handlers.nvim",
 		"debugloop/telescope-undo.nvim",
 	},
-	lazy = false,
+	keys = { "<leader>f", "<leader>u" },
 	config = function()
 		local actions = require("telescope.actions")
 		local builtin = require("telescope.builtin")
