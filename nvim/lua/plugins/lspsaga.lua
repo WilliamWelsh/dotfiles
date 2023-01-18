@@ -1,7 +1,8 @@
 return {
   "glepnir/lspsaga.nvim",
+  event = "BufRead",
   config = function()
-    require("lspsaga").init_lsp_saga({
+    require("lspsaga").setup({
       server_filetype_map = {
         typescript = "typescript",
       },
