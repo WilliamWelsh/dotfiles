@@ -1,8 +1,15 @@
 return {
-	-- Color rgb and hexadecimal backgrounds
+	-- Color rgb and hexadecimal backgrounds and tailwind
 	{
-		"Akianonymus/nvim-colorizer.lua",
-		config = true,
+		"NvChad/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup({
+				user_default_options = {
+					names = true,
+					tailwind = true,
+				},
+			})
+		end,
 	},
 	-- Same as above but for Tailwind classes
 	{
