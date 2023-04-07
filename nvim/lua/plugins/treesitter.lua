@@ -25,7 +25,7 @@ return {
 					enable = true,
 					disable = {},
 				},
-				ensure_installed = { "tsx", "fish", "json", "yaml", "css", "html", "lua" },
+				ensure_installed = { "tsx", "fish", "json", "yaml", "css", "html", "lua", "prisma" },
 				autotag = {
 					enable = true,
 				},
