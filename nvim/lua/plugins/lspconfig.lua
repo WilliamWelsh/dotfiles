@@ -75,65 +75,66 @@ return {
     }
 
     -- Organize Imports command (remove unused imports)
-    local function organize_imports()
-      local params = {
-        command = "_typescript.organizeImports",
-        arguments = { vim.api.nvim_buf_get_name(0) },
-        title = "",
-      }
-      vim.lsp.buf.execute_command(params)
-    end
+    -- local function organize_imports()
+    --   local params = {
+    --     command = "_typescript.organizeImports",
+    --     arguments = { vim.api.nvim_buf_get_name(0) },
+    --     title = "",
+    --   }
+    --   vim.lsp.buf.execute_command(params)
+    -- end
 
-    nvim_lsp.tsserver.setup({
-      on_attach = on_attach,
-      filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-      capabilities = capabilities,
-      cmd = { "typescript-language-server", "--stdio" },
-      commands = {
-        OrganizeImports = {
-          organize_imports,
-          description = "Organize Imports",
-        },
-      },
-      -- Thank u MagicDuck
-      -- https://github.com/MagicDuck/dotfiles/blob/master/.config/nvim/lua/my/plugins/lsp/tsserver.lua#L51
-      -- Gets rid of duplicate diagnostics
-      handlers = {
-        ["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
-          result.diagnostics = vim.tbl_filter(function(diagnostic)
-            return vim.tbl_contains({
-              -- allow name not found diagnostics
-              2304,
-            }, diagnostic.code)
-          end, result.diagnostics)
-          return vim.lsp.handlers["textDocument/publishDiagnostics"](nil, result, ctx, config)
-        end,
-      },
-      settings = {
-        javascript = {
-          inlayHints = {
-            includeInlayEnumMemberValueHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayVariableTypeHints = true,
-          },
-        },
-        typescript = {
-          inlayHints = {
-            includeInlayEnumMemberValueHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayVariableTypeHints = true,
-          },
-        },
-      },
-    })
+    -- TS Server is handled by typescript.nvim plugin
+    -- nvim_lsp.tsserver.setup({
+    --   on_attach = on_attach,
+    --   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+    --   capabilities = capabilities,
+    --   cmd = { "typescript-language-server", "--stdio" },
+    --   commands = {
+    --     OrganizeImports = {
+    --       organize_imports,
+    --       description = "Organize Imports",
+    --     },
+    --   },
+    --   -- Thank u MagicDuck
+    --   -- https://github.com/MagicDuck/dotfiles/blob/master/.config/nvim/lua/my/plugins/lsp/tsserver.lua#L51
+    --   -- Gets rid of duplicate diagnostics
+    --   handlers = {
+    --     ["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+    --       result.diagnostics = vim.tbl_filter(function(diagnostic)
+    --         return vim.tbl_contains({
+    --           -- allow name not found diagnostics
+    --           2304,
+    --         }, diagnostic.code)
+    --       end, result.diagnostics)
+    --       return vim.lsp.handlers["textDocument/publishDiagnostics"](nil, result, ctx, config)
+    --     end,
+    --   },
+    --   settings = {
+    --     javascript = {
+    --       inlayHints = {
+    --         includeInlayEnumMemberValueHints = true,
+    --         includeInlayFunctionLikeReturnTypeHints = true,
+    --         includeInlayFunctionParameterTypeHints = true,
+    --         includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+    --         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+    --         includeInlayPropertyDeclarationTypeHints = true,
+    --         includeInlayVariableTypeHints = true,
+    --       },
+    --     },
+    --     typescript = {
+    --       inlayHints = {
+    --         includeInlayEnumMemberValueHints = true,
+    --         includeInlayFunctionLikeReturnTypeHints = true,
+    --         includeInlayFunctionParameterTypeHints = true,
+    --         includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+    --         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+    --         includeInlayPropertyDeclarationTypeHints = true,
+    --         includeInlayVariableTypeHints = true,
+    --       },
+    --     },
+    --   },
+    -- })
 
     nvim_lsp.eslint.setup({
       on_attach = on_attach,
