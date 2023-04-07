@@ -1,6 +1,6 @@
 return {
 	"jackMort/ChatGPT.nvim",
-	event = "VeryLazy",
+	cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTEditWithInstructions", "ChatGPTRun", "ChatGPTRunCustomCodeAction" },
 	config = function()
 		require("chatgpt").setup({
 			keymaps = {
