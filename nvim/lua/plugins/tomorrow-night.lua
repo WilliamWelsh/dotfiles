@@ -1,7 +1,11 @@
 -- return {
 return {
 	"chriskempson/base16-vim",
-	lazy = false,
+	lazy = false,priority = 1000,
+  config = function()
+      -- load the colorscheme here
+      vim.cmd([[colorscheme base16-tomorrow-night]])
+    end,
 	-- config = true,
 	-- config = function()
 	-- require("base16-vim").setup({

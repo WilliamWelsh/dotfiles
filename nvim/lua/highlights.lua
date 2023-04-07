@@ -13,46 +13,29 @@ vim.api.nvim_set_hl(0, "WinSeparator", {
 	fg = "#3F434B",
 })
 
-vim.api.nvim_set_hl(0, "Normal", {
-	bg = "NONE",
-})
-vim.api.nvim_set_hl(0, "NonText", {
-	bg = "NONE",
-})
-vim.api.nvim_set_hl(0, "Folded", {
-	bg = "NONE",
-})
-vim.api.nvim_set_hl(0, "SpecialKey", {
-	bg = "NONE",
-})
-vim.api.nvim_set_hl(0, "VertSplit", {
-	bg = "NONE",
-})
-vim.api.nvim_set_hl(0, "LineNr", {
-	bg = "NONE",
-})
-vim.api.nvim_set_hl(0, "NonText", {
-	bg = "NONE",
-})
-vim.api.nvim_set_hl(0, "SignColumn", {
-	bg = "NONE",
-})
-vim.api.nvim_set_hl(0, "EndOfBuffer", {
-	bg = "NONE",
-})
-vim.api.nvim_set_hl(0, "NormalNC", {
-	bg = "NONE",
-})
-vim.api.nvim_set_hl(0, "TabLineFill", {
-	bg = "NONE",
-})
+local hl_groups = {
+	-- Safe
+	"Normal",
+	"SignColumn",
+	"CursorLineNr",
+	"CursorLine",
 
-vim.api.nvim_set_hl(0, "CursorLineNr", {
-	bg = "NONE",
-})
-vim.api.nvim_set_hl(0, "CursorLine", {
-	bg = "NONE",
-})
+	-- Bad bois
+	"NormalNC",
 
--- 			Group.new("CursorLine", colors.none, colors.base03, styles.NONE, colors.base1)
--- 			Group.new("CursorLineNr", colors.yellow, colors.black, styles.NONE, colors.base1)
+	-- Unknown
+	"NonText",
+	"Folded",
+	"SpecialKey",
+	"VertSplit",
+	"LineNr",
+	"NonText",
+	"EndOfBuffer",
+	"TabLineFill",
+}
+
+for _, hl_group in ipairs(hl_groups) do
+	vim.api.nvim_set_hl(0, hl_group, {
+		bg = "NONE",
+	})
+end
