@@ -7,9 +7,12 @@ return {
 
 		local protocol = require("vim.lsp.protocol")
 
+		local ih = require("lsp-inlayhints")
+
 		-- Use an on_attach function to only map the following keys
 		-- after the language server attaches to the current buffer
 		local on_attach = function(client, bufnr)
+			ih.on_attach(client, bufnr)
 			-- local function buf_set_keymap(...)
 			-- 	vim.api.nvim_buf_set_keymap(bufnr, ...)
 			-- end
@@ -92,6 +95,44 @@ return {
 					description = "Organize Imports",
 				},
 			},
+			-- Thank u MagicDuck
+			-- https://github.com/MagicDuck/dotfiles/blob/master/.config/nvim/lua/my/plugins/lsp/tsserver.lua#L51
+			-- Gets rid of duplicate diagnostics
+			handlers = {
+				["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+					result.diagnostics = vim.tbl_filter(function(diagnostic)
+						return vim.tbl_contains({
+							-- allow name not found diagnostics
+							2304,
+						}, diagnostic.code)
+					end, result.diagnostics)
+					return vim.lsp.handlers["textDocument/publishDiagnostics"](nil, result, ctx, config)
+				end,
+			},
+			settings = {
+				javascript = {
+					inlayHints = {
+						includeInlayEnumMemberValueHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayVariableTypeHints = true,
+					},
+				},
+				typescript = {
+					inlayHints = {
+						includeInlayEnumMemberValueHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayVariableTypeHints = true,
+					},
+				},
+			},
 		})
 
 		nvim_lsp.eslint.setup({
@@ -109,7 +150,7 @@ return {
 			},
 		})
 
-		nvim_lsp.sumneko_lua.setup({
+		nvim_lsp.lua_ls.setup({
 			on_attach = on_attach,
 			settings = {
 				Lua = {
@@ -130,6 +171,37 @@ return {
 		nvim_lsp.tailwindcss.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
+		})
+
+		nvim_lsp.omnisharp.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
+
+		nvim_lsp.gopls.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			settings = {
+				gopls = {
+					gofumpt = true,
+				},
+			},
+			flags = {
+				debounce_text_changes = 150,
+			},
+		})
+
+		nvim_lsp.golangci_lint_ls.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			settings = {
+				gopls = {
+					gofumpt = true,
+				},
+			},
+			flags = {
+				debounce_text_changes = 150,
+			},
 		})
 
 		nvim_lsp.prismals.setup({})
