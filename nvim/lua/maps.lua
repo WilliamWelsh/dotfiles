@@ -14,6 +14,7 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Close tab (CMD + W in iTerm)
 keymap.set("n", ";q", ":bdelete<Return>")
+keymap.set("n", "<C-w>", ":bdelete<Return>")
 
 -- Split window
 keymap.set("n", "gws", ":split<Return><C-w>w")
@@ -27,20 +28,17 @@ keymap.set("", "gwj", "<C-w>j")
 keymap.set("", "gwl", "<C-w>l")
 
 -- Resize window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
+-- keymap.set("n", "<C-w><left>", "<C-w><")
+-- keymap.set("n", "<C-w><right>", "<C-w>>")
+-- keymap.set("n", "<C-w><up>", "<C-w>+")
+-- keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Use escape to get out of terminal mode
 keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
--- CMD + / (iTerm) to comment lines
--- keymap.set("n", "<Space>/", "<Plug>CommentaryLine")
--- keymap.set("v", "<Space>/", "<Plug>Commentary")
-
 -- CMD + B (iTerm) to toggle explorer
 keymap.set("n", ";n", ":NvimTreeToggle<Return>")
+keymap.set("n", "<Space>b", ":NvimTreeToggle<Return>")
 
 -- Shift + CMD + F (iTerm)
 keymap.set("n", ";h", ":lua require('spectre').open_visual()<Return>")
