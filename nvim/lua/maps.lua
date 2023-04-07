@@ -1,5 +1,7 @@
 local keymap = vim.keymap
 
+vim.g.mapleader = " "
+
 keymap.set("n", "x", '"_x')
 
 -- Increment/decrement
@@ -17,15 +19,15 @@ keymap.set("n", ";q", ":bdelete<Return>")
 keymap.set("n", "<C-w>", ":bdelete<Return>")
 
 -- Split window
-keymap.set("n", "gws", ":split<Return><C-w>w")
-keymap.set("n", "gwv", ":vsplit<Return><C-w>w")
+keymap.set("n", "<Leader>ws", ":split<CR>")
+keymap.set("n", "<Leader>wv", ":vsplit<CR>")
 
 -- Move window
 keymap.set("n", "<Space>", "<C-w>w")
-keymap.set("", "gwh", "<C-w>h")
-keymap.set("", "gwk", "<C-w>k")
-keymap.set("", "gwj", "<C-w>j")
-keymap.set("", "gwl", "<C-w>l")
+keymap.set("", "<Leader>wh", "<C-w>h")
+keymap.set("", "<Leader>wk", "<C-w>k")
+keymap.set("", "<Leader>wj", "<C-w>j")
+keymap.set("", "<Leader>wl", "<C-w>l")
 
 -- Resize window
 -- keymap.set("n", "<C-w><left>", "<C-w><")
@@ -46,8 +48,6 @@ keymap.set("n", ";h", ":lua require('spectre').open_visual()<Return>")
 -- Greatest remap ever (lol)
 keymap.set("v", "<leader>p", '"_dP')
 
-vim.g.mapleader = " "
-
 -- 1 trillion iq remaps to stay centered @theprimeagen
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
@@ -63,3 +63,9 @@ keymap.set("i", "<D-s>", "<Esc>:w<Return>")
 keymap.set("n", "<D-w>", ":bdelete<Return>")
 keymap.set("n", "<D-b>", ":NvimTreeToggle<Return>")
 keymap.set("n", "<D-.>", "<Cmd>Lspsaga code_action<CR>", opts)
+
+-- Mwahahaha
+keymap.set("n", "<C-s>", ":w<CR>")
+keymap.set("i", "<C-s>", "<Esc>:w<CR>")
+keymap.set("i", "<C-S-s>", "<Esc>:wa<CR>")
+keymap.set("n", "<C-S-s>", ":wa<CR>")
