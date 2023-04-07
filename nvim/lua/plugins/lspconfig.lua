@@ -12,7 +12,7 @@ return {
 		-- Use an on_attach function to only map the following keys
 		-- after the language server attaches to the current buffer
 		local on_attach = function(client, bufnr)
-			ih.on_attach(client, bufnr)
+			ih.on_attach(client, bufnr, false)
 			-- local function buf_set_keymap(...)
 			-- 	vim.api.nvim_buf_set_keymap(bufnr, ...)
 			-- end
@@ -176,6 +176,10 @@ return {
 		nvim_lsp.omnisharp.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
+			cmd = {
+				"dotnet",
+				"/Users/william/.vscode/extensions/ms-dotnettools.csharp-1.25.4-darwin-arm64/.omnisharp/1.39.4-net6.0/OmniSharp.dll",
+			},
 		})
 
 		nvim_lsp.gopls.setup({
