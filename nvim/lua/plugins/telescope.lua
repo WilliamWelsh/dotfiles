@@ -11,43 +11,28 @@ return {
 		local actions = require("telescope.actions")
 		local builtin = require("telescope.builtin")
 
-		vim.keymap.set("n", "<Leader>ff", function()
-			builtin.find_files({
-				no_ignore = false,
-				hidden = true,
-			})
-		end)
+		local telescope_mappings = {
+			{ "<Leader>fg", builtin.live_grep },
+			{ "<Leader>fb", builtin.buffers },
+			{ "<Leader>fj", builtin.jumplist },
+			{ "<Leader>fe", builtin.diagnostics },
+			{ "<Leader>fs", builtin.lsp_document_symbols },
+			{
+				"<Leader>ff",
+				function()
+					builtin.find_files({
+						no_ignore = false,
+						hidden = true,
+					})
+				end,
+			},
+			{ "<Leader>fr", builtin.lsp_references },
+		}
 
-		vim.keymap.set("n", "<Leader>fr", function()
-			builtin.lsp_references()
-		end)
-
-		vim.keymap.set("n", ";f", function()
-			builtin.find_files({
-				no_ignore = false,
-				hidden = true,
-			})
-		end)
-
-		vim.keymap.set("n", "<Leader>fg", function()
-			builtin.live_grep()
-		end)
-
-		vim.keymap.set("n", "<Leader>fb", function()
-			builtin.buffers()
-		end)
-
-		vim.keymap.set("n", "<Leader>fj", function()
-			builtin.jumplist()
-		end)
-
-		vim.keymap.set("n", "<Leader>fe", function()
-			builtin.diagnostics()
-		end)
-
-		vim.keymap.set("n", "<Leader>fs", function()
-			builtin.lsp_document_symbols()
-		end)
+		for _, mapping in ipairs(telescope_mappings) do
+			local key, func = mapping[1], mapping[2]
+			vim.keymap.set("n", key, func)
+		end
 
 		require("telescope").setup({
 			defaults = {
