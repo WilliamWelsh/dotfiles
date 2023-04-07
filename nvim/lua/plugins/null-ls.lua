@@ -32,8 +32,11 @@ return {
 					},
 				}),
 				null_ls.builtins.formatting.rustfmt,
-				null_ls.builtins.diagnostics.fish,
+				-- null_ls.builtins.diagnostics.fish,
 				null_ls.builtins.formatting.stylua,
+
+				null_ls.builtins.formatting.gofmt,
+				-- null_ls.builtins.diagnostics.golangci_lint,
 			},
 			on_attach = function(client, bufnr)
 				if client.server_capabilities.documentFormattingProvider then
