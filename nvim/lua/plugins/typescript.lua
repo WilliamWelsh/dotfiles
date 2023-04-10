@@ -44,17 +44,15 @@ return {
 				-- Thank u MagicDuck
 				-- https://github.com/MagicDuck/dotfiles/blob/master/.config/nvim/lua/my/plugins/lsp/tsserver.lua#L51
 				-- Gets rid of duplicate diagnostics
-				handlers = {
-					["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
-						result.diagnostics = vim.tbl_filter(function(diagnostic)
-							return vim.tbl_contains({
-								-- allow name not found diagnostics
-								2304,
-							}, diagnostic.code)
-						end, result.diagnostics)
-						return vim.lsp.handlers["textDocument/publishDiagnostics"](nil, result, ctx, config)
-					end,
-				},
+				-- handlers = {
+				-- 	["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+				-- 		result.diagnostics = vim.tbl_filter(function(diagnostic)
+				-- 			return vim.tbl_contains({
+				-- 			}, diagnostic.code)
+				-- 		end, result.diagnostics)
+				-- 		return vim.lsp.handlers["textDocument/publishDiagnostics"](nil, result, ctx, config)
+				-- 	end,
+				-- },
 				settings = {
 					javascript = {
 						inlayHints = {
