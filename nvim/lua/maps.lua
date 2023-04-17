@@ -15,7 +15,7 @@ keymap.set("n", "dw", 'vb"_d')
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Close tab (CMD + W in iTerm)
-keymap.set("n", ";q", ":bdelete<Return>")
+keymap.set("n", "'q", ":bdelete<Return>")
 keymap.set("n", "<C-w>", ":bdelete<Return>")
 
 -- Split window
@@ -39,11 +39,11 @@ keymap.set("", "<Leader>wl", "<C-w>l")
 keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- CMD + B (iTerm) to toggle explorer
-keymap.set("n", ";n", ":NvimTreeToggle<Return>")
+keymap.set("n", "'n", ":NvimTreeToggle<Return>")
 keymap.set("n", "<Space>b", ":NvimTreeToggle<Return>")
 
 -- Shift + CMD + F (iTerm)
-keymap.set("n", ";h", ":lua require('spectre').open_visual()<Return>")
+keymap.set("n", "'h", ":lua require('spectre').open_visual()<Return>")
 
 -- Greatest remap ever (lol)
 keymap.set("v", "<leader>p", '"_dP')
