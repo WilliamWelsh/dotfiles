@@ -16,6 +16,7 @@ return {
 						"javascriptreact",
 						"typescript",
 						"typescriptreact",
+						"tsx",
 						"vue",
 						"css",
 						"scss",
@@ -36,6 +37,7 @@ return {
 				null_ls.builtins.formatting.stylua,
 
 				null_ls.builtins.formatting.gofmt,
+				null_ls.builtins.formatting.swiftlint.with({ filetypes = { "swift" } }),
 				-- null_ls.builtins.diagnostics.golangci_lint,
 			},
 			on_attach = function(client, bufnr)

@@ -39,3 +39,7 @@ for _, hl_group in ipairs(hl_groups) do
 		bg = "NONE",
 	})
 end
+
+vim.api.nvim_set_hl(0, "HighlightUndo", {
+	bg = "red",
+})
