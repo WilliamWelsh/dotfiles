@@ -1,33 +1,18 @@
 return {
-	"lukas-reineke/indent-blankline.nvim",
-	lazy = false,
-	config = function()
-		local status, blankline = pcall(require, "indent-blankline")
-		if not status then
-			return
-		end
-
-		blankline.setup({
-			indentLine_enabled = 1,
-			filetype_exclude = {
-				"help",
-				"terminal",
-				"alpha",
-				"packer",
-				"lspinfo",
-				"TelescopePrompt",
-				"TelescopeResults",
-				"mason",
-				"",
-			},
-			buftype_exclude = { "terminal" },
-			show_trailing_blankline_indent = false,
-			show_first_indent_level = false,
-			show_current_context = true,
-			show_current_context_start = true,
-			space_char_blankline = " ",
-		})
-
-		vim.cmd("highlight IndentBlanklineContextStart guisp=#F5C2E7 gui=underline")
-	end,
+  "lukas-reineke/indent-blankline.nvim",
+  lazy = false,
+  config = function()
+    require("indent_blankline").setup({
+      char = "│",
+      show_trailing_blankline_indent = false,
+      show_first_indent_level = true,
+      show_current_context = false,
+      show_current_context_start = false,
+      space_char_blankline = " ",
+      use_treesitter = true,
+      context_patterns = { "class", "function", "method" },
+      filetype_exclude = { "help", "packer", "nvimtree", "dashboard", "neo-tree" },
+      buftype_exclude = { "terminal", "nofile", "quickfix" },
+    })
+  end,
 }
