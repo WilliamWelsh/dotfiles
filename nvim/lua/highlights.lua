@@ -43,3 +43,18 @@ end
 vim.api.nvim_set_hl(0, "HighlightUndo", {
 	bg = "red",
 })
+
+vim.api.nvim_set_hl(0, "GitSignsAdd", {
+	bg = "NONE",
+	fg = "#348c37",
+})
+
+vim.api.nvim_set_hl(0, "GitSignsDelete", {
+	bg = "NONE",
+	fg = "red",
+})
+
+vim.api.nvim_set_hl(0, "GitSignsChange", {
+	bg = "NONE",
+	fg = "#DE935F",
+})
