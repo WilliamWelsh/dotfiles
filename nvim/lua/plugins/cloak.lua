@@ -1,1 +1,1 @@
-return { "laytan/cloak.nvim", config = true }
+return { "laytan/cloak.nvim", config = true, lazy = true }
