@@ -7,6 +7,7 @@ return {
 				["=="] = "!=",
 				["false"] = "true",
 				["private"] = "public",
+				["let"] = "const",
 			},
 		})
 
