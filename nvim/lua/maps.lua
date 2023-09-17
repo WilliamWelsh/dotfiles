@@ -54,7 +54,18 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "{", "{zz", opts)
 vim.keymap.set("n", "}", "}zz", opts)
-vim.keymap.set("n", "]]", "]]zzzv", opts)
+vim.keymap.set("n", "]]", "]]zz", opts)
+vim.keymap.set("n", "G", "Gzz", opts)
+
+-- I always be doing capital Q on accident
+vim.api.nvim_exec(
+	[[
+  command! -nargs=0 Q quit
+  command! -nargs=0 Qa quitall
+  command! -nargs=0 QA quitall
+]],
+	false
+)
 
 -- Command as meta in apps that support it
 vim.g.neovide_input_macos_alt_is_meta = true
