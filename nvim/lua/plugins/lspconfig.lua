@@ -166,6 +166,11 @@ return {
       capabilities = capabilities,
     })
 
+    nvim_lsp.pyright.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+
     nvim_lsp.lua_ls.setup({
       on_attach = on_attach,
       settings = {
