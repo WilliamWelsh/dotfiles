@@ -9,7 +9,7 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "tailwindcss" },
+				ensure_installed = { "tailwindcss", "gopls" },
 			})
 		end,
 	},

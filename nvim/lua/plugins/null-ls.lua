@@ -1,5 +1,5 @@
 return {
-	"jose-elias-alvarez/null-ls.nvim",
+	"nvimtools/none-ls.nvim",
 	event = "VeryLazy",
 	config = function()
 		local augroup_format = vim.api.nvim_create_augroup("Format", {
@@ -41,9 +41,17 @@ return {
 				-- Python
 				null_ls.builtins.formatting.black,
 
+				-- Gradle
+				-- null_ls.builtins.formatting.npm_groovy_lint,
+				-- null_ls.builtins.diagnostics.npm_groovy_lint,
+
+				-- Go
 				null_ls.builtins.formatting.gofmt,
+				null_ls.builtins.formatting.goimports_reviser,
+				null_ls.builtins.formatting.golines,
+
+				-- Swift
 				null_ls.builtins.formatting.swiftlint.with({ filetypes = { "swift" } }),
-				-- null_ls.builtins.diagnostics.golangci_lint,
 			},
 			on_attach = function(client, bufnr)
 				if client.server_capabilities.documentFormattingProvider then
