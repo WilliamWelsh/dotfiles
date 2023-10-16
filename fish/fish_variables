@@ -1,9 +1,18 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export CGO_CFLAGS:\x2dI/usr/local/include
 SETUVAR --export LSCOLORS:gxfxbEaEBxxEhEhBaDaCaD
+SETUVAR ZO_CMD:zo
+SETUVAR Z_CMD:z
+SETUVAR Z_DATA:/Users/william/\x2elocal/share/z/data
+SETUVAR Z_DATA_DIR:/Users/william/\x2elocal/share/z
+SETUVAR Z_EXCLUDE:\x5e/Users/william\x24
+SETUVAR __done_min_cmd_duration:5000
 SETUVAR __fish_initialized:3400
+SETUVAR _fisher_edc_2F_bass_files:\x7e/\x2econfig/fish/functions/__bass\x2epy\x1e\x7e/\x2econfig/fish/functions/bass\x2efish
+SETUVAR _fisher_jethrokuan_2F_z_files:\x7e/\x2econfig/fish/functions/__z\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_add\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_clean\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_complete\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ez11i/github\x2dcopilot\x2dcli\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ez11i/github\x2dcopilot\x2dcli\x2efish\x1ejethrokuan/z\x1eedc/bass
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR _fisher_z11i_2F_github_2D_copilot_2D_cli_2E_fish_files:\x7e/\x2econfig/fish/conf\x2ed/github\x2dcopilot\x2dcli\x2efish
 SETUVAR fish_color_autosuggestion:969896
@@ -45,4 +54,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/Users/william/\x2ecargo/bin\x1e/opt/homebrew/bin
+SETUVAR --export fish_user_paths:/Users/william/\x2ecargo/bin\x1e/opt/homebrew/bin\x1e/Users/william/go/bin
