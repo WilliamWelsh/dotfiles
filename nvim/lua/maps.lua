@@ -29,6 +29,8 @@ keymap.set("", "<Leader>wk", "<C-w>k")
 keymap.set("", "<Leader>wj", "<C-w>j")
 keymap.set("", "<Leader>wl", "<C-w>l")
 
+keymap.set("", "<Leader>gie", ":GoIfErr<Return>")
+
 -- Resize window
 -- keymap.set("n", "<C-w><left>", "<C-w><")
 -- keymap.set("n", "<C-w><right>", "<C-w>>")
