@@ -2,18 +2,22 @@ return {
 	"echasnovski/mini.comment",
 	keys = { "<leader>/" },
 	dependencies = {
-		{ "JoosepAlviste/nvim-ts-context-commentstring" },
+		{
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
 	},
 	config = function()
+		vim.g.skip_ts_context_commentstring_module = true
+
+		require("ts_context_commentstring").setup({
+			enable_autocmd = false,
+		})
+
 		require("mini.comment").setup({
-			hooks = {
-				pre = function()
-					require("ts_context_commentstring.internal").update_commentstring({})
-				end,
-			},
 			mappings = {
 				comment = "<Space>/",
 				comment_line = "<Space>/",
+				comment_visual = "<Space>/",
 			},
 			options = {
 				custom_commentstring = function()
