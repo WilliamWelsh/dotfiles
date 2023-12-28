@@ -1,4 +1,4 @@
-rvm default
+# gvm default
 
 function nvm
    bass source (brew --prefix nvm)/nvm.sh --no-use ';' nvm $argv
@@ -21,3 +21,11 @@ set --export PATH $BUN_INSTALL/bin $PATH
 set -gx PNPM_HOME "/Users/william/Library/pnpm"
 set -gx PATH "$PNPM_HOME" $PATH
 # pnpm end
+
+set PATH /usr/local/share/dotnet $PATH
+set PATH /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/ $PATH
+
+status --is-interactive; and . (rbenv init -|psub)
+
+set -Ux LS_COLORS (vivid generate nord)
+
