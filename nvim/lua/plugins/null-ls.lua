@@ -36,6 +36,8 @@ return {
 				-- null_ls.builtins.diagnostics.fish,
 				null_ls.builtins.formatting.stylua,
 
+				null_ls.builtins.formatting.csharpier,
+
 				null_ls.builtins.formatting.zigfmt,
 
 				-- Python
