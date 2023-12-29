@@ -56,4 +56,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR --export fish_user_paths:/System/Library/Frameworks/Ruby\x2eframework/Versions/2\x2e6/usr/bin\x1e/Users/william/go/bin\x1e/Users/william/\x2ecargo/bin\x1e/opt/homebrew/bin
+SETUVAR --export fish_user_paths:/System/Library/Frameworks/Ruby\x2eframework/Versions/2\x2e6/usr/bin\x1e/Users/william/go/bin\x1e/Users/william/\x2ecargo/bin\x1e/opt/homebrew/bin\x1e/Users/william/\x2edotnet/tools
