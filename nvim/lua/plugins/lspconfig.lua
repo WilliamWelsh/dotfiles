@@ -4,7 +4,6 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"Hoffs/omnisharp-extended-lsp.nvim",
 	},
 	config = function()
 		local nvim_lsp = require("lspconfig")
